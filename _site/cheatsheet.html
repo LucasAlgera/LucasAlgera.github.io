@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" as="style" type="text/css" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#FFA500">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="/assets/css/style.css?v=6f01230b3c5fac1aa1456a5ad54ac3bab099107d">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    
+    <header class="page-header" role="banner">
+      <h1 style="color: white;" class="project-name">⬇️ Markdown cheatsheet</h1>
+      <h2 style="color: white;">
+        <a class="author" href="mailto: 000000.buas.nl">Your Name</a>
+      </h2>
+      <h2 style="color: white;">000000</h2>
+      <a href="/" class="btn"> 🏠 </a>
+
+      
+        <a href="/ilos/ILO1.html" class="btn"> 🗺️ ILO 1</a>
+      
+        <a href="/ilos/ILO2.html" class="btn"> 🔬 ILO 2</a>
+      
+        <a href="/ilos/ILO3.html" class="btn"> ⏱️ ILO 3</a>
+      
+        <a href="/ilos/ILO4.html" class="btn"> 🦾 ILO 4</a>
+      
+        <a href="/ilos/ILO5.html" class="btn"> 🎁 ILO 5</a>
+      
+      
+      <a href="/retake.html" class="btn">🔁 Retake</a>
+    </header>
+
+    <div class="site-name">
+      <a href="/" title="Return to the homepage">🐝 2024-2025 Y2A PR - Learning Log</a>
+    </div>
+
+    <main id="content" class="main-content" role="main">
+      <p># 
+For a more comprehensive, github-flavored guide check: https://docs.github.com/en/get-started/writing-on-github.</p>
+
+<h2 id="table-of-content">Table of content</h2>
+<ul>
+  <li><a href="#headings">Headings</a></li>
+  <li><a href="#emphasis">Emphasis</a></li>
+  <li><a href="#lists">Lists</a></li>
+  <li><a href="#links">Links</a></li>
+  <li><a href="#code">Code</a></li>
+  <li><a href="#mathematical-expressions">Mathematical Expressions</a></li>
+  <li><a href="#images">Images</a></li>
+  <li><a href="#videos">Videos</a></li>
+</ul>
+
+<h2 id="headings">Headings</h2>
+
+<h1 id="heading-1">Heading 1</h1>
+<h2 id="heading-2">Heading 2</h2>
+<h3 id="heading-3">Heading 3</h3>
+<h4 id="heading-4">Heading 4</h4>
+<h5 id="heading-5">Heading 5</h5>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Heading 1
+## Heading 2
+### Heading 3
+#### Heading 4
+##### Heading 5
+</code></pre></div></div>
+
+<h2 id="emphasis">Emphasis</h2>
+
+<p>Bold
+<strong>The quick brown fox jumps over the lazy dog.</strong></p>
+
+<p>Italic
+<em>The quick brown fox jumps over the lazy dog.</em></p>
+
+<p>Strike-through
+<del>The quick brown fox jumps over the lazy dog.</del></p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Bold
+<span class="gs">**The quick brown fox jumps over the lazy dog.**</span>
+
+Italic
+<span class="ge">*The quick brown fox jumps over the lazy dog.*</span>
+
+Strike-through
+~~The quick brown fox jumps over the lazy dog.~~
+</code></pre></div></div>
+
+<h2 id="lists">Lists</h2>
+<p>Ordered lists require manual numbering, while unhordered lists can be done with multiple characters (but the recommended one is <code class="language-plaintext highlighter-rouge">-</code>)</p>
+
+<ol>
+  <li>First ordered list item</li>
+  <li>Another item
+    <ul>
+      <li>Unordered sub-list.</li>
+    </ul>
+  </li>
+  <li>Actual numbers don’t matter, just that it’s a number
+    <ol>
+      <li>Ordered sub-list</li>
+    </ol>
+  </li>
+  <li>And another item.</li>
+</ol>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">1.</span> First ordered list item
+<span class="p">2.</span> Another item
+<span class="p">    -</span> Unordered sub-list. 
+<span class="p">1.</span> Actual numbers don't matter, just that it's a number
+<span class="p">    1.</span> Ordered sub-list
+<span class="p">4.</span> And another item.
+</code></pre></div></div>
+
+<h2 id="links">Links</h2>
+<p><a href="https://www.google.com">Inline-style link</a></p>
+
+<p><a href="../evidence/ILO01.md">Relative link to a file in the repository</a>, use <code class="language-plaintext highlighter-rouge">..</code> to access parent folders</p>
+
+<p><a href="#headings">Relative link to a header in the current document</a></p>
+
+<p><a href="evidence/README.md#what-is-in-this-template">Relative link to a header in another document</a></p>
+
+<p><em><strong>Warning:</strong> Always test your links on the generated website as well!</em></p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="nv">Inline-style link</span><span class="p">](</span><span class="sx">https://www.google.com</span><span class="p">)</span>
+
+<span class="p">[</span><span class="nv">Relative link to a file in the repository</span><span class="p">](</span><span class="sx">../evidence/ILO01.md</span><span class="p">)</span>
+
+<span class="p">[</span><span class="nv">Relative link to a header in the current document</span><span class="p">](</span><span class="sx">#headings</span><span class="p">)</span>
+
+<span class="p">[</span><span class="nv">Relative link to a header in another document</span><span class="p">](</span><span class="sx">evidence/README.md#what-is-in-this-template</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<p>Note that it is also possible to use references and footnotes, for that check</p>
+
+<h2 id="code">Code</h2>
+<p>Code can be <code class="language-plaintext highlighter-rouge">inlined</code></p>
+
+<p>Like this: <code class="language-plaintext highlighter-rouge">auto entity = Engine.ECS().CreateEntity();</code></p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="sb">`auto entity = Engine.ECS().CreateEntity();`</span>
+</code></pre></div></div>
+
+<p>Or it can be put in a code block (optionally you can enable syntax highlight by providing a language name after the opening ` ``` `)</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">struct</span> <span class="nc">Transform</span><span class="p">{</span>
+    <span class="n">vec3</span> <span class="n">stuff</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">```</span><span class="nl">cpp
+</span><span class="k">struct</span> <span class="nc">Transform</span><span class="p">{</span>
+    <span class="n">vec3</span> <span class="n">stuff</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="p">```</span>
+</code></pre></div></div>
+
+<p>If you want to emphasize changes in code you can also use the diff syntax like so</p>
+
+<div class="language-diff highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">struct Transform{
+</span><span class="gd">-    vec3 stuff;
+</span><span class="gi">+    vec3 translation;
+</span><span class="err">}</span>
+</code></pre></div></div>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">```</span><span class="nl">diff 
+</span><span class="p">struct Transform{
+</span><span class="gd">-    vec3 stuff;
+</span><span class="gi">+    vec3 translation;
+</span><span class="err">}</span>
+<span class="p">```</span>
+</code></pre></div></div>
+
+<p>Finally, you can also reference a specific code snippet from your repo (even from an older commit) by linking directly to a certain file and line. To do so, generate a permanent link, see: 
+https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-a-permanent-link-to-a-code-snippet</p>
+
+<h2 id="mathematical-expressions">Mathematical Expressions</h2>
+
+<p>Mathematical equations in markdown are based uses <code class="language-plaintext highlighter-rouge">MathJax</code> which in turn uses <code class="language-plaintext highlighter-rouge">LaTeX</code> as markup. Check http://tug.ctan.org/info/undergradmath/undergradmath.pdf for a small cheatsheet of <code class="language-plaintext highlighter-rouge">LaTeX</code> for mathematical expressions.</p>
+
+<p>Expressions can be inlined $\Delta x = \vec{v} \Delta t$</p>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$<span class="se">\D</span>elta x = <span class="se">\v</span>ec{v} <span class="se">\D</span>elta t$
+</code></pre></div></div>
+
+<p>or presented as a block</p>
+
+\[L_o(\omega_o) = L_e(\omega_o) + \int_{\Omega} f_r(\omega_o, \omega_i) \cdot L_i(\omega_i) \cdot \cos\theta_{i} \cdot d\omega_i\]
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$$
+L_o(<span class="se">\o</span>mega_o) = L_e(<span class="se">\o</span>mega_o) + <span class="se">\i</span>nt_{<span class="se">\O</span>mega} f_r(<span class="se">\o</span>mega_o, <span class="se">\o</span>mega_i) <span class="se">\c</span>dot L_i(<span class="se">\o</span>mega_i) <span class="se">\c</span>dot <span class="se">\c</span>os<span class="se">\t</span>heta_{i} <span class="se">\c</span>dot d<span class="se">\o</span>mega_i
+$$
+</code></pre></div></div>
+
+<h2 id="images">Images</h2>
+<p><img src="/assets/media/download_github.png" alt="alt text" /></p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">![</span><span class="nv">alt text</span><span class="p">](</span><span class="sx">/assets/media/download_github.png</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="videos">Videos</h2>
+<p>You can embed YouTube videos by clicking <code class="language-plaintext highlighter-rouge">share</code> and then <code class="language-plaintext highlighter-rouge">embed</code> in YouTube.</p>
+
+<p>You can also embed videos uploaded to the repository.</p>
+
+<p><em><strong>Warning:</strong> Videos might not display correctly on GitHub or in your own markdown editor. Make sure that they at least display correctly in the website release!</em></p>
+
+<video width="320" height="240" controls="">
+  <source src="assets/media/sample_video.mp4" type="video/mp4" />
+</video>
+
+<p><a href="/assets/media/sample_video.mp4"><img src="" alt="Watch the video" /></a></p>
+
+<p>…/assets/media/sample_video.mp4</p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;video</span> <span class="na">width=</span><span class="s">"320"</span> <span class="na">height=</span><span class="s">"240"</span> <span class="na">controls</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;source</span> <span class="na">src=</span><span class="s">"assets/media/sample_video.mp4"</span> <span class="na">type=</span><span class="s">"video/mp4"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/video&gt;</span>
+</code></pre></div></div>
+
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/LucasAlgera/LucasAlgera.github.io">LucasAlgera.github.io</a> is maintained by <a href="https://github.com/LucasAlgera">LucasAlgera</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" as="style" type="text/css" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#FFA500">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="/assets/css/style.css?v=6f01230b3c5fac1aa1456a5ad54ac3bab099107d">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    
+    <header class="page-header" role="banner">
+      <h1 style="color: white;" class="project-name">🗺️ ILO 1: Study planning (15%)</h1>
+      <h2 style="color: white;">
+        <a class="author" href="mailto: 000000.buas.nl">Your Name</a>
+      </h2>
+      <h2 style="color: white;">000000</h2>
+      <a href="/" class="btn"> 🏠 </a>
+
+      
+        <a href="/ilos/ILO1.html" class="btn"> 🗺️ ILO 1</a>
+      
+        <a href="/ilos/ILO2.html" class="btn"> 🔬 ILO 2</a>
+      
+        <a href="/ilos/ILO3.html" class="btn"> ⏱️ ILO 3</a>
+      
+        <a href="/ilos/ILO4.html" class="btn"> 🦾 ILO 4</a>
+      
+        <a href="/ilos/ILO5.html" class="btn"> 🎁 ILO 5</a>
+      
+      
+      <a href="/retake.html" class="btn">🔁 Retake</a>
+    </header>
+
+    <div class="site-name">
+      <a href="/" title="Return to the homepage">🐝 2024-2025 Y2A PR - Learning Log</a>
+    </div>
+
+    <main id="content" class="main-content" role="main">
+      <p>As a student, <strong>I can create and adapt a detailed plan for my project</strong>, so that I take steps towards my dream career in a structured way.</p>
+
+<h1 id="-suggested-evidence">💭 Suggested Evidence</h1>
+<ul>
+  <li>Week 1 self-study plan</li>
+  <li>Weekly progress reviews</li>
+  <li>Group meeting attendance</li>
+  <li>Roundtable survey</li>
+</ul>
+
+<h1 id="-detailed-rubric">💯 Detailed Rubric</h1>
+
+<p>🔴 <strong>Poor:</strong> The student has handed in their study plan on time. The plan is complete and has acceptable content.</p>
+
+<p>🟠 <strong>Insufficient:</strong> The student has processed teacher feedback on the initial study plan. The student has attended most study-group meetings. The Learning Log section for this ILO contains a progress review for most weeks.</p>
+
+<p>🟡 <strong>Sufficient:</strong> The student has proactively participated in all study-group meetings. Each week, the Learning Log contains a progress review with an actionable plan for the upcoming week.</p>
+
+<p>🟢 <strong>Good:</strong> The student has evaluated their study plan over time and has adapted it when needed, based on critical self-review and feedback received (e.g. during the study-group meetings).</p>
+
+<p>🔵 <strong>Excellent:</strong> The student reflects well on their developed skills and on their progress towards their dream career. The Learning Log shows critical reflection and lessons learned about managing a study project.</p>
+
+<h1 id="-evidence">🔍 Evidence</h1>
+
+<h2 id="week-1️⃣-self-study-plan">Week 1️⃣: Self-study plan</h2>
+
+<p><em>Give an outline of your self-study plan. You don’t have to present the complete plan here (you’re already handing in the one-pager on Brightspace!), but just repeat the most important points.</em></p>
+
+<p><em>Job title:</em> Senior Tools Programmer at Epic Games</p>
+
+<p><em>Project title:</em> Terrain brushes for the Bee engine</p>
+
+<p><em>Week 3 milestone:</em> Be able to “paint” on a surface and have that be saved to a greyscale png.</p>
+
+<p><em>Week 5 milestone:</em> Upon loading in the terrain have the height of the polygons in the grid be dependent on the heightmap from the png using either just a bunch of planes or doing it the way the OpenGL article below instructs.</p>
+
+<p><em>Week 7 milestone:</em> Optimize the brush so that real time editing of the terrain goes smoothly without lag and add a fitting UI that helps the user with the brush (brushsize, strength, etc.)</p>
+
+<p><em>Stress tests:</em> I can increase the polycount in the terrain to test performance on high-level terrains. And I can test how big the brush can be (how many polygons will be updated at the same time). I will make use of the bee engine profiler for this.</p>
+
+<p><em>Stretch goals:</em></p>
+<ul>
+  <li>Having the colour of the polygon be bound to the height of the polygons which can make for some cool mountain like effects.</li>
+  <li>User defined shapes for brushes.</li>
+  <li>Noise based brushes.</li>
+</ul>
+
+<h2 id="week-2️⃣-progress-meeting">Week 2️⃣: Progress meeting</h2>
+
+<p><em>Make sure you can give a live demo of your project during the weekly meeting. Paste a screenshot/video here.</em> 
+<img src="../assets/media/W1Showcase.png" alt="W1_Showcase" /></p>
+
+<p><em>What have you been doing over the past week? How much time did it take?</em></p>
+<ul>
+  <li>Made my self study plan.</li>
+  <li>Researched terrain generation and terrain brushes in other engines.</li>
+  <li>Researched terrain rendering.</li>
+  <li>Made the bee engine compile and started working on a brush which saves to a .png.</li>
+</ul>
+
+<p><em>What problems/challenges (foreseen or unforeseen) did you run into?</em> <br />
+I knew that getting the brush position and where it paints on the canvas and eventually saving that to a .png would take a bit of time but I eventually figured it out. What took some time was figuring out and better understanding the stb_image library. I still have to decide whether I want to save it as 8 or 16 bit.</p>
+
+<p><em>What are you planning to do in the upcoming week?</em>   <br />
+Visualize what you paint in the editor (I am thinking of something with ImGui) and better refine the brush by having it paint with a falloff, strength, etc.</p>
+
+<p><em>Are you on track overall? Do you need to adjust your milestones / stress tests (either up or down)? If so, what are your new milestones / stress tests?</em>     <br />
+I think as of now I am on track so I wont be changing any of my milestones. I will however add “Tri-planar mapping” as a stretch goal after talking to Bojan about my self-study plan.</p>
+
+<p><em>Do you have any technical questions you need help with? If so, what are they?</em>   <br />
+No.</p>
+
+<h2 id="week-3️⃣-progress-meeting">Week 3️⃣: Progress meeting</h2>
+
+<p><em>Make sure you can give a live demo of your project during the weekly meeting. Paste a screenshot/video here.</em></p>
+
+<p><img src="../assets/media/W3_TexturePainting.png" alt="W3 Texture" /></p>
+
+<p><em>What have you been doing over the past week? How much time did it take?</em>
+This past week i’ve been buisy with adding texture drawing for the heightmaps. I have also been researching the rendering aspect of the terrain more.</p>
+
+<p><em>What problems/challenges (foreseen or unforeseen) did you run into?</em>
+It took a bit of trial and error to get the texture drawing working but eventually i got there. 
+I am totally not familiar with rendering yet and I will have to spend a lot of time trying to get that working in my project.</p>
+
+<p><em>What are you planning to do in the upcoming week?</em>
+Get a grid of triangles to be drawn according to the heightmap put in by the user.</p>
+
+<p><em>Are you on track overall? Do you need to adjust your milestones / stress tests (either up or down)? If so, what are your new milestones / stress tests?</em>
+I have put the “User defined brushes” stretchgoal to the week 3 milestone. But I feel like I am on track.</p>
+
+<p><em>Do you have any technical questions you need help with? If so, what are they?</em>
+No.</p>
+
+<h2 id="week-4️⃣-progress-meeting">Week 4️⃣: Progress meeting</h2>
+
+<p><em>Make sure you can give a live demo of your project during the weekly meeting. Paste a screenshot/video here.</em></p>
+
+<p><img src="../assets/media/W4_Progress.png" alt="W4 terrainGen" /></p>
+
+<p><em>What have you been doing over the past week? How much time did it take?</em>
+Last week I have been trying to get some rendering working and trying to get a better understanding of how OpenGL and glsl work. 
+…</p>
+
+<p><em>What problems/challenges (foreseen or unforeseen) did you run into?</em>
+Me having a hard time getting textures to work in shaders. 
+…</p>
+
+<p><em>What are you planning to do in the upcoming week?</em>
+Getting the heightmap to render the right way, maybe with textures. 
+…</p>
+
+<p><em>Are you on track overall? Do you need to adjust your milestones / stress tests (either up or down)? If so, what are your new milestones / stress tests?</em>
+I think so? I feel like i am behind because the rendering takes me quite long but I am still somewhat on track i believe. 
+…</p>
+
+<p><em>Do you have any technical questions you need help with? If so, what are they?</em></p>
+
+<p>…</p>
+
+<h2 id="week-5️⃣-progress-meeting">Week 5️⃣: Progress meeting</h2>
+
+<p><em>Make sure you can give a live demo of your project during the weekly meeting. Paste a screenshot/video here.</em></p>
+
+<p><img src="../assets/media/workingTerrainGen.gif" alt="W5 terrainGen" /></p>
+
+<p><em>What have you been doing over the past week? How much time did it take?</em></p>
+
+<p>I have been working on getting the rendering working, this took me a bit long to understand because I was very unfamiliar with the way BEE handles it’s rendering. 
+Right now my code is just kind of chucked into the rendering loop, I would like to eventually put this into my own files. I have also fixed some small brush regarding bugs i still had.</p>
+
+<p><em>What problems/challenges (foreseen or unforeseen) did you run into?</em></p>
+
+<p>That getting the heightmap into the vertex shader would take so much time. I tried to go with the way BEE handles it but it was quite a task.</p>
+
+<p><em>What are you planning to do in the upcoming week?</em></p>
+
+<p>Getting normal calculation and some texturing.</p>
+
+<p><em>Are you on track overall? Do you need to adjust your milestones / stress tests (either up or down)? If so, what are your new milestones / stress tests?</em>
+Yes.</p>
+
+<p><em>Do you have any technical questions you need help with? If so, what are they?</em></p>
+
+<p>…</p>
+
+<h2 id="week-6️⃣-progress-meeting">Week 6️⃣: Progress meeting</h2>
+
+<p><em>Make sure you can give a live demo of your project during the weekly meeting. Paste a screenshot/video here.</em> 
+In the image below I show that i am working on my normal generation. There is something happening but all the normals are mirrored and there is a huge artifact which covers half of the terrain. 
+<img src="../assets/media/W6_WrongNormals.png" alt="W6 Wrong normals" /></p>
+
+<p><em>What have you been doing over the past week? How much time did it take?</em>
+I have spent a lot of time getting back into it after the vacation and generating normals for my heightmap. Generating the normals took most of my week because of an issue I have explained below.</p>
+
+<p><em>What problems/challenges (foreseen or unforeseen) did you run into?</em>
+What took me a really long time was generating the normals correctly, this was partly because I did not yet understand the math behind it well enough and it took me a really long time to figure out that the max mesh size for bee was 255x255. Before I tried it with a higher subdivision count but then the uint16_t which stored the normals, which has a max value of 65535, would overflow at a certain point which would mess up the normals. At first I thought it had something to do with the UV’s not being correct and there being something wrong in my generation, so I spent a long time looking in the wrong place.</p>
+
+<p><em>What are you planning to do in the upcoming week?</em>
+I got the feedback from Bert that i should spend more of my time actually building the right things which makes a good tool. Brushes that can actually make mountains, good mouse-mountain interseciton, etc.
+I will also rework a bit of my system so i can load in and render more than 1 heightmap at a time by doing some sort of heightmap ID system. 
+I will also start with the optimization of my tool by finding hotspots in my code.</p>
+
+<p><em>Are you on track overall? Do you need to adjust your milestones / stress tests (either up or down)? If so, what are your new milestones / stress tests?</em> 
+My week 7 milestone was: Optimize the brush so that real time editing of the terrain goes smoothly without lag and add a fitting UI that helps the user with the brush (brushsize, strength, etc.). I will also be updating my stresstest from amount of subdivisions to how many times per frame we can update the normals.</p>
+
+<p>I will change this to: Optimize the brush so that real time editing of the terrain goes smoothly without lag and add multiple brushes such as smoothing, falloff, etc. Start with making my API a bit cleaner and user friendly.</p>
+
+<p><em>Do you have any technical questions you need help with? If so, what are they?</em>
+No.</p>
+
+<h2 id="week-7️⃣-progress-meeting">Week 7️⃣: Progress meeting</h2>
+
+<p><em>Make sure you can give a live demo of your project during the weekly meeting. Paste a screenshot/video here.</em> 
+Here you can see that I fixed all the normals and I am able to load and render multiple heightmaps. 
+<img src="../assets/media/W7_progress.png" alt="W7 Progress" /></p>
+
+<p><em>What have you been doing over the past week? How much time did it take?</em>
+This week I have spent time on making a smoothing and a falloff brush, so the “mountain making” part of the tool is now working. I have also redone a bit of my code so that I can render more than 1 heightmap at a time. Before I only stored 1 heightmap which was the one you were working on. But now I store multiple and I link them together by using a HeightMapID variable where upon creation of a landscape the heightmap and the terrain entity get connected to each other.</p>
+
+<p><em>What problems/challenges (foreseen or unforeseen) did you run into?</em>
+Not a whole lot this week. Some small stuff but not like last week where it held up a lot of my progress.</p>
+
+<p><em>What are you planning to do in the upcoming week?</em>
+Next week I want to have my entire tool finished on Tuesday so it’s done before the showcase. What I want to do is change the raycasting I have right now to work on mountains instead of just the groundplane. I also want to clean up my API and make it more user friendly and optimize the painting process.</p>
+
+<p><em>Are you on track overall? Do you need to adjust your milestones / stress tests (either up or down)? If so, what are your new milestones / stress tests?</em>
+Yes, everything I want to do is in the milestone I reset in week 6.</p>
+
+<p><em>Do you have any technical questions you need help with? If so, what are they?</em>
+No</p>
+
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/LucasAlgera/LucasAlgera.github.io">LucasAlgera.github.io</a> is maintained by <a href="https://github.com/LucasAlgera">LucasAlgera</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" as="style" type="text/css" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#FFA500">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="/assets/css/style.css?v=6f01230b3c5fac1aa1456a5ad54ac3bab099107d">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    
+    <header class="page-header" role="banner">
+      <h1 style="color: white;" class="project-name">🦾 ILO 4: Technical achievement (40%)</h1>
+      <h2 style="color: white;">
+        <a class="author" href="mailto: 000000.buas.nl">Your Name</a>
+      </h2>
+      <h2 style="color: white;">000000</h2>
+      <a href="/" class="btn"> 🏠 </a>
+
+      
+        <a href="/ilos/ILO1.html" class="btn"> 🗺️ ILO 1</a>
+      
+        <a href="/ilos/ILO2.html" class="btn"> 🔬 ILO 2</a>
+      
+        <a href="/ilos/ILO3.html" class="btn"> ⏱️ ILO 3</a>
+      
+        <a href="/ilos/ILO4.html" class="btn"> 🦾 ILO 4</a>
+      
+        <a href="/ilos/ILO5.html" class="btn"> 🎁 ILO 5</a>
+      
+      
+      <a href="/retake.html" class="btn">🔁 Retake</a>
+    </header>
+
+    <div class="site-name">
+      <a href="/" title="Return to the homepage">🐝 2024-2025 Y2A PR - Learning Log</a>
+    </div>
+
+    <main id="content" class="main-content" role="main">
+      <p>As a game (engine) programmer, <strong>I can create a technically impressive production-ready tool / feature</strong>, so that my work can help shape future projects.</p>
+
+<h1 id="-suggested-evidence">💭 Suggested Evidence</h1>
+<ul>
+  <li>Videos / screenshots of the features developed</li>
+  <li>Relevant code snippets</li>
+  <li>Explanations of the implemented concepts</li>
+</ul>
+
+<h1 id="-detailed-rubric">💯 Detailed Rubric</h1>
+
+<p>🔴 <strong>Poor:</strong> Evidence of some development work in line with the self-study plan. The student has written enough code themselves.</p>
+
+<p>In ILO 1 I have constantly kept up with my self-study plan and when I had to change things I would always announce that in that weeks ILO part. And eventually my tool came out like I expected. Terrain Brushes and Terrain Sculpting in the BEE engine.</p>
+
+<p><em>Week 3 milestone:</em> Be able to “paint” on a surface and have that be saved to a greyscale png.</p>
+
+<p><em>Week 5 milestone:</em> Upon loading in the terrain have the height of the polygons in the grid be dependent on the heightmap from the png using either just a bunch of planes or doing it the way the OpenGL article below instructs.</p>
+
+<p><em>Week 7 milestone:</em> Optimize the brush so that real time editing of the terrain goes smoothly without lag and add a fitting UI that helps the user with the brush (brushsize, strength, etc.)</p>
+
+<video width="320" height="240" controls="">
+  <source src="../assets/media/ToolShowcase.mp4" type="video/mp4" />
+</video>
+
+<p>In this video I show that I have achieved all the milestones I had set for myself. I have the grayscale painting with different types of brushes: circle, falloff, texture brush and smoothing brush. I have the terrain rendering which is being done by offsetting vertices of a grid by sampling over a heightmap in a shader. I have added UI which the user can use to tweak brush settings, see the heightmap they are drawing on and a small manager where you can load more heightmaps from disk.</p>
+
+<p>🟠 <strong>Insufficient:</strong> Evidence of the project output being a usable tool/feature. Videos and code examples show the project’s basic usage and capabilities.</p>
+
+<p>With 1 simple line of code the user can add a landscape to the engine: 
+<code class="language-plaintext highlighter-rouge">Engine.TerrainManager().AddTerrain("Terrain1", "assets/textures/HeightMap1.png", 255, false);</code></p>
+
+<p>The first paramater represents the name, second is the filepath of the heightmap you want to load, 3rd is the amount of subdivisions and last is a boolean if you want to load an empty terrain.</p>
+
+<p>In the video above I have already showcased most of the tool’s features.</p>
+
+<p>🟡 <strong>Sufficient:</strong> Evidence of the project output having all the functionality mentioned in the self-study plan, for example by showing multiple demos. The work has been sufficiently complex.</p>
+
+<p>🟢 <strong>Good:</strong> Evidence of the tool/feature being easy to embed into other projects, using well-designed APIs and clear examples of usage. Evidence shows good technical execution in terms of software architecture, algorithms, data structures, error handling, etc.</p>
+
+<p>🔵 <strong>Excellent:</strong> Videos and other evidence show that the student’s code is robust and well-tested. The student has significantly pushed the boundaries of the project, by investigating and solving complex domain problems on their own.</p>
+
+<h1 id="-evidence">🔍 Evidence</h1>
+
+<p>…</p>
+
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/LucasAlgera/LucasAlgera.github.io">LucasAlgera.github.io</a> is maintained by <a href="https://github.com/LucasAlgera">LucasAlgera</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </main>
+  </body>
+</html>

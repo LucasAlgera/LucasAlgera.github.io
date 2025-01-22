@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" as="style" type="text/css" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#FFA500">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="/assets/css/style.css?v=6f01230b3c5fac1aa1456a5ad54ac3bab099107d">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    
+    <header class="page-header" role="banner">
+      <h1 style="color: white;" class="project-name">⏱️ ILO 3: Profiling and optimization (15%)</h1>
+      <h2 style="color: white;">
+        <a class="author" href="mailto: 000000.buas.nl">Your Name</a>
+      </h2>
+      <h2 style="color: white;">000000</h2>
+      <a href="/" class="btn"> 🏠 </a>
+
+      
+        <a href="/ilos/ILO1.html" class="btn"> 🗺️ ILO 1</a>
+      
+        <a href="/ilos/ILO2.html" class="btn"> 🔬 ILO 2</a>
+      
+        <a href="/ilos/ILO3.html" class="btn"> ⏱️ ILO 3</a>
+      
+        <a href="/ilos/ILO4.html" class="btn"> 🦾 ILO 4</a>
+      
+        <a href="/ilos/ILO5.html" class="btn"> 🎁 ILO 5</a>
+      
+      
+      <a href="/retake.html" class="btn">🔁 Retake</a>
+    </header>
+
+    <div class="site-name">
+      <a href="/" title="Return to the homepage">🐝 2024-2025 Y2A PR - Learning Log</a>
+    </div>
+
+    <main id="content" class="main-content" role="main">
+      <p>As a programmer, <strong>I profile and optimize my code using the appropriate tools and techniques</strong>, so that my software works efficiently even in challenging scenarios.</p>
+
+<h1 id="-suggested-evidence">💭 Suggested Evidence</h1>
+<ul>
+  <li>Profiler output -&gt; Descriptions of optimizations -&gt; Improved profiler output</li>
+  <li>Videos / code of stress tests</li>
+  <li>Analysis of performance / algorithms</li>
+</ul>
+
+<h1 id="-detailed-rubric">💯 Detailed Rubric</h1>
+
+<p>🔴 <strong>Poor:</strong> Some evidence of profiling the performance of the student’s codebase.</p>
+
+<p>For my profiling tool I made use of VerySleepy. By far my most used function every frame is recalculating the normals for every frame 255x255 = 65,025 times. This is really preformance heavy when the glm normalize and cross functions get called 65,025x2 per frame whilst also looping through the entire heightmap and reading all the pixel values.</p>
+
+<p><strong>Total CPU usage:</strong></p>
+
+<p><img src="../assets/media/ProfilingBefore1.png" alt="ProfilingBefore1" /></p>
+
+<p><strong>Biggest Hotspots:</strong></p>
+
+<p><img src="../assets/media/ProfilingBefore2.png" alt="ProfilingBefore2" />
+<img src="../assets/media/ProfilingBefore3.png" alt="ProfilingBefore3" /></p>
+
+<p>🟠 <strong>Insufficient:</strong> Evidence of executing the stress tests as outlined in the plan and profiling them using the appropriate tools, enough to indicate a basic understanding of profiling.</p>
+
+<p>I had two stress test parts: More terrain subdivisions and a bigger brush. 1 of these will not be working because in week 6 I realised that the max bee can handle is 255x255. But I could still test the bigger brush. This will serve as a good stress test because then we can see how many pixels the brush could theoredically update per frame.</p>
+
+<p>🟡 <strong>Sufficient:</strong> Evidence of non-trivial optimizations in the codebase based on the profiling results of the stress tests. The student clearly shows their process of profiling, optimizing the code, and verifying the outcome.</p>
+
+<p>When turning off the normal generation we can have a better look at what else is going on inside of the code performance wise, since the normal generation is the main bottleneck.</p>
+
+<p><strong>The Paint() function</strong></p>
+
+<p>At a brush size of 2000 and about a 5 sec application time we can see that what took a lot of time was for every pixel the brush was updating it was also casting <code class="language-plaintext highlighter-rouge">localBrushCoordinates</code> into an integer. I realised that I could move the casting outside of the nested loops this made some nice improvements on performance.</p>
+
+<p><img src="../assets/media/Optimization1.png" alt="Optimization 1" />
+This made the <code class="language-plaintext highlighter-rouge">Paint()</code> function go from a total time percentage of 5.01% to 4.31%.</p>
+
+<p>Other than that there are some other small things such as putting <code class="language-plaintext highlighter-rouge">trueBrushRadius * trueBrushRadius</code> outside of the loop so we can use <code class="language-plaintext highlighter-rouge">trueBrushRadiusSquared</code> multiple times in the loop without recalculating it every time. Though it is cleaner, in the grander scheme of things it doesnt make a huge difference.</p>
+
+<p><strong>The GenerateNormals() function</strong></p>
+
+<p>In week 6 I added the normal generation as a stress test and since this is my main bottleneck I think it’s smart if I shift all my attention towards it.</p>
+
+<p>My <code class="language-plaintext highlighter-rouge">GenerateNormals()</code> function consists of 2 operations.</p>
+<ol>
+  <li>First we read the heightmap as pixel data which we then store into vertices with an applied offset from calculated from the pixeldata. <code class="language-plaintext highlighter-rouge">static_cast&lt;float&gt;(heightmap.data[index]) / 256.0f;</code> We then put those into a list which we will use for the normal generation.</li>
+  <li>In the 2nd part of the function we grab the vertexdata calculated before and put put the edges of the trianles into the glm crossproduct function which we then normalize. This happends two times (for both triangles).</li>
+</ol>
+
+<p>Both of these steps are needed and are already fairly bare bones, so instead of changing the function I will just change how much we update them.</p>
+
+<p><img src="../assets/media/ProfilingBefore4.png" alt="Profiling 4" /></p>
+
+<p>But this still doesnt fix our issue. Now every 10 frames the normals get recalculated and every 10 frames we will get a lagspike. 
+So instead of this I will still use the frame interval but instead of waiting 9 frames and doing nothing I will split the heightmap into seperate parts, then the load is spread over multiple frames.</p>
+
+<p>Just like this I will devide the heightmap into a couple of strips and every frame I will update 1. 
+<img src="../assets/media/Optimization2.png" alt="Optimization 2" /></p>
+
+<p>But besides this we could also use our brush radius to only update the normals that are being worked on that frame. Though this would mean that we still have the same issue when the user has a really big brush.</p>
+
+<p>To combat that we can just combine both the optimizations which would look like this: 
+<img src="../assets/media/Optimization3.png" alt="Optimization 3" /></p>
+
+<p>🟢 <strong>Good:</strong> The profiling and optimization work clearly looks for the limits of the developed features, e.g. by testing multiple values of multiple relevant parameters. This shows that the student has good insight into the scalability of the system.</p>
+
+<p>🔵 <strong>Excellent:</strong> The work leads to highly optimized code and/or good future optimization opportunities. The student shows a deep understanding of optimization and performance analysis within the project’s domain (e.g. algorithmic analysis, hardware constraints, etc).</p>
+
+<h1 id="-evidence">🔍 Evidence</h1>
+
+<p>…</p>
+
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/LucasAlgera/LucasAlgera.github.io">LucasAlgera.github.io</a> is maintained by <a href="https://github.com/LucasAlgera">LucasAlgera</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </main>
+  </body>
+</html>
