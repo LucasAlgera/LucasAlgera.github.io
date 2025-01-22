@@ -25,9 +25,24 @@ I have decided to make use of greyscale heightmaps to store our terrain data. Th
 - Easy for users to import their own heightmaps. If you are using your own loading and saving algorithms it is impossible for users to import other terrains created outside of your program. 
 - Easy to send our data to the GPU for rendering. I will talk further about this later. 
 
+STB supports upto 16 bit depth when writing to png's, I however found that 8 bits are already enough for me. But if your goal is to have really high definition landscapes and 16 bits aren't enough you could consider making use of OpenEXR. OpenEXR or exr for short is mostly used in the film VFX insdustry because of its high bit depth which makes it so filmmakers can store more colors. Exr supports upto 16-bit half-float and 32-bit float channels which should give you more than enough precision in your terrain. You can make use of [TinyEXR](https://github.com/syoyo/tinyexr) as a replacement for the STB library.
 
+Because the engine I worked in didn't support meshes that exceed 255x255 subdivisions I never needed to make use of a resolution higher than that but be aware that using large heightmaps can really start to dig into memory if you dont watch out. 
 
 ## How do we render our landscape?
+
+As I've said before we need to make sure that our landscape rendering happens dynamically without having too many performance issues. This is where using a heightmap comes into place. We can send our heightmap we use to store our terrain data to our GPU and offset our vertices inside of the vertex shader. For this we will need a flat terrain (a grid). 
+
+After this we will sample over our heightmap using the GLSL `texture()` function like this: 
+`float height = texture(s_heightmap, a_texture0).r;`
+We can then use this height to offset each one of our vertices: 
+`vec3 new_position = vec3(a_position.x, a_position.y + height, a_position.z);`
+
+By doing this we don't have to remake our mesh every time it changes and it's very cost efficient. 
+
+![Vertex offsetting illustration](/assets/images/VertexShaderHeightmap.png)
+
+And that is basically it when it comes to the terrain rendering. 
 
 ## Different brushes
 
