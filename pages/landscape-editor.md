@@ -90,9 +90,7 @@ If the ray eventually goes under the terrain then thats where we have found an i
 ## Future improvements
 
 There is still so much to lanscape editors that I haven't implemented and uncovered yet. I have for example as of now not yet touched the texuring part of terrain rendering. This could however be done by using [Tri-Planar mapping](https://bgolus.medium.com/normal-mapping-for-a-triplanar-shader-10bf39dca05a) (Article by Ben Golus, sep 17, 2017). 
-
 Or LoD'ing and culling. Heightmaps can be massive and it would help for performance if we only render what we can see and what is further away we render at a lower resolution. 
-
 Adding in erosion brushes/simulations or more noise based brushes which can more accurately simulate how real mountains would form. 
 
 The list goes on and on and for the time being there is no real end in sight regarding landscape editing. 
