@@ -46,6 +46,34 @@ And that is basically it when it comes to the terrain rendering.
 
 ## Different brushes
 
+A good landscape editor should have a variety of different brushes in it's arsenal. Because I had some time constrains I added the bare necessities which in my opinion were:
+- A regular circular brush. 
+- A linear falloff brush. 
+- A smoothing brush. 
+- A texture brush. 
+
+Maybe aside from the texture brush all of these are needed to make basic terrains. And adding a brush strength and brush size parameter will help with the usability. 
+
+![Brushes showcase](/assets/images/BrushTypes.png)
+
+Unreal for example has a bunch more brushes and settings such as erosion, noise, ramps, and different mathematical functions resulting in something else than a linear falloff. 
+
 ## Raymarching a heightmap
+
+A bit later into making this tool I stumbled upon an issue. When for the CPU the terrain is a flat grid and only for the GPU it is an actual terrain. How do we accurately calculate the mouse to terrain intersection on the CPU without our cursur going straight through the terrain? 
+
+After some pondering I decided to try and raymarch the heightmap. 
+First off we shoot a ray from the camera and calculate it's entry and exit point from the terrain. 
+
+![Landscape Ray](/assets/images/LandscapeRay.png)
+
+After having these points we convert the ray into heightmap space and for every pixel in that heightmap that the ray shoots over we check if the ray in worldspace is above or under the terrain + the vertexoffset of that pixel. 
+
+![Heightmap Ray](/assets/images/HeightmapRay.gif)
+
+If the ray eventually goes under the terrain then thats where we have found an intersection and that is where our new brushposition will be. This will be the endresult
+
+![Raymarching](/assets/images/RayMarching.gif)
+
 
 ## Future improvements
