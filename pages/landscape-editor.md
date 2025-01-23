@@ -88,4 +88,4 @@ Adding in erosion brushes/simulations or more noise based brushes which can more
 
 The list goes on and on and for the time being there is no real end in sight regarding landscape editing. 
 
-Thanks for reading my article, if you have any feedback or questions feel free to contact me at [Email](lucasalgera@outlook.com). 
+Thanks for reading my article, if you have any feedback or questions feel free to contact me at [lucasalgera@outlook.com](lucasalgera@outlook.com). 
