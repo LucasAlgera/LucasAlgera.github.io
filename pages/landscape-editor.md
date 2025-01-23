@@ -4,7 +4,9 @@
 
 ## Introduction
 
-JEDI fallen order, Borderlands, Black Myth Wukon and many more games have been made using the Unreal Engine. All these games have incredible landscapes and have most likely made use of Unreal's Landscaping tool. With many games becoming more complex and environments becoming bigger and more impressive it is almost a necessity for game engines to have a landscape sculpter of some sorts. With multiple other engines also having similar landscaping tools I thought it was an interesting project to try and recreate one in an Educational Engine supplied to me by my teachers. This assignment was part of my studies in **Creative Media and Game Technologies** at **Breda University of applied sciences**.
+JEDI fallen order, Borderlands, Black Myth Wukon and many more games have been made using the Unreal Engine. All these games have incredible landscapes and have most likely made use of Unreal's Landscaping tool. With many games becoming more complex and environments becoming bigger and more impressive it is almost a necessity for game engines to have a landscape sculpter of some sorts. 
+
+With multiple other engines also having similar landscaping tools I thought it was an interesting project to try and recreate one in an Educational Engine supplied to me by my teachers. This assignment was part of my studies in **Creative Media and Game Technologies** at **Breda University of applied sciences**.
 
 In this article I will share the knowledge I have gained having worked on and having researched landscape editors. 
 
@@ -57,6 +59,13 @@ A good landscape editor should have a variety of different brushes in it's arsen
 Maybe aside from the texture brush all of these are needed to make basic terrains. And adding a brush strength and brush size parameter will help with the usability. 
 
 ![Brushes showcase](/assets/images/BrushTypes.png)
+
+Most of the brushes you would want to have can be created with mathematical functions. 
+For example the **circular brush** is just a radius check and for the **falloff brush** we multiply the brush's distance from center to the brush strength so the further away from the center we are the lower the terrain is. 
+For the **smoothing brush** we simply check all the 8 neighbouring pixels and get an average of that and set our pixel height to that. 
+Finally the **texture brush** is jut simply loaded into memory and the buffer is applied to the heightmap at the cursor's position. 
+
+For further inspiration regarding mathematical functions you could look at [easings.net](https://easings.net/).
 
 Unreal for example has a bunch more brushes and settings such as erosion, noise, ramps, and different mathematical functions resulting in something else than a linear falloff. 
 
