@@ -29,7 +29,7 @@ I have decided to make use of greyscale heightmaps to store our terrain data. Th
 - Easy for users to import their own heightmaps. If you are using your own loading and saving algorithms it is impossible for users to import other terrains created outside of your program. 
 - Easy to send our data to the GPU for rendering. I will talk further about this later. 
 
-STB supports upto 16 bit depth when writing to png's, I however found that 8 bits are already enough for me. But if your goal is to have really high definition landscapes and 16 bits aren't enough you could consider making use of OpenEXR. OpenEXR or exr for short is mostly used in the film VFX insdustry because of its high bit depth which makes it so filmmakers can store more colors. Exr supports upto 16-bit half-float and 32-bit float channels which should give you more than enough precision in your terrain. You can make use of [TinyEXR](https://github.com/syoyo/tinyexr) as a replacement for the STB library.
+STB supports upto 16 bit depth when writing to png's, I however found that 8 bits are already enough for me. But if your goal is to have really high definition landscapes and 16 bits aren't enough you could consider making use of OpenEXR. OpenEXR or exr for short is mostly used in the film VFX insdustry because of its high bit depth which makes it so filmmakers can store more colours. Exr supports upto 16-bit half-float and 32-bit float channels which should give you more than enough precision in your terrain. You can make use of [TinyEXR](https://github.com/syoyo/tinyexr) as a replacement for the STB library.
 
 Because the engine I worked in didn't support meshes that exceed 255x255 subdivisions I never needed to make use of a resolution higher than that but be aware that using large heightmaps can really start to dig into memory if you dont watch out. 
 
@@ -47,6 +47,36 @@ By doing this we don't have to remake our mesh every time it changes and it's ve
 ![Vertex offsetting illustration](/assets/images/VertexShaderHeightmap.png)
 
 And that is basically it when it comes to the terrain rendering. 
+
+## How do we modify the data on the heightmap
+
+When loading in our heightmap in using stbi_load() we store our data in an unsinged char*. 
+
+```
+struct Heightmap
+{
+    int width, height, bpp;
+    unsigned char* data = nullptr;
+};
+
+void LoadHeightmap()
+{
+    heightmap.data = stbi_load(filepath, &heightmap.width, &heightmap.height, &heightmap.bpp, 0);
+}
+```
+
+After having loaded in our heightmap data into memory we can access it like this:
+```
+int index = (brush.x * heightmap.width + brush.x) * heightmap.bpp;
+
+//Change all our colour channels.
+heightmap.data[index + 0] = drawingResult; //red
+heightmap.data[index + 1] = drawingResult; //green
+heightmap.data[index + 2] = drawingResult; //blue
+heightmap.data[index + 4] = drawingResult; //alpha
+```
+
+With this we draw 1 pixel at a time but if we put this in a loop and preform a radious check we can have a circular brush!
 
 ## Different brushes
 
