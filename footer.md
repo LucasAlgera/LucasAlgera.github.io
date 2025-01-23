@@ -1,3 +1,1 @@
-[Home Page](?page=)
-
-[LinkedIn](https://www.linkedin.com/in/lucas-algera-a5b489301/)
+[Home Page](?page=) - [LinkedIn](https://www.linkedin.com/in/lucas-algera-a5b489301/)
