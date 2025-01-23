@@ -5,7 +5,7 @@ _Lucas / January 22, 2025_
 
 ## Introduction
 
-JEDI fallen order, Borderlands, Black Myth Wukon and many more games have been made using the Unreal Engine. All these games have incredible landscapes and have most likely made use of Unreal's Landscaping tool. With many games becoming more complex and environments becoming bigger and more impressive, it is almost a necessity for game engines to have a landscape sculpter of some sorts. 
+JEDI fallen order, Borderlands, Black Myth Wukong and many more games have been made using the Unreal Engine. All these games have incredible landscapes and have most likely made use of Unreal's Landscaping tool. With many games becoming more complex and environments becoming bigger and more impressive, it is almost a necessity for game engines to have a landscape sculpter of some sorts. 
 
 With multiple other engines also having similar landscaping tools, I thought it would be an interesting project to try to recreate one in an Educational Engine supplied to me by my teachers. This assignment was part of my studies in **Creative Media and Game Technologies** at **Breda University of applied sciences**.
 
@@ -112,6 +112,47 @@ First off we shoot a ray from the camera and calculate it's entry and exit point
 After having these points we convert the ray into heightmap space and for every pixel in that heightmap that the ray shoots over we check if the ray in worldspace is above or under the terrain + the vertexoffset of that pixel. 
 
 ![Heightmap Ray](/assets/images/HeightmapRay.gif)
+
+```
+// The EntryLocalCoordinates are the coordinates in heightmap space where the ray first enters the grid. 
+glm::vec2 currentPos = EntryLocalCoordinates;
+int maxSteps = heightmap.width * 2;
+
+for (int step = 0; step < maxSteps; step++)
+{
+    // The ray is clamped to stay within the bounds of the heightmap.
+    int rayIn2DHeightmapX = glm::clamp(int(currentPos.x), 0, heightmap.width);
+    int rayIn2DHeightmapY = glm::clamp(int(currentPos.y), 0, heightmap.width);
+
+    // Get height of the pixel from heightmap
+    int index = (rayIn2DHeightmapY * heightmap.width + rayIn2DHeightmapX) * heightmap.bpp;
+
+    // This is the height of the vertex (pixeldata together with scale which is then divided by 255 because we go back to worldspace).
+    float vertexOffset = (heightmap.data[index] * transform.GetScale().y) / 255.0f + transform.GetTranslation().y;
+
+    // We convert the ray back from "heightmap space" into world space.
+    glm::vec3 rayIn3DGrid{};
+    rayIn3DGrid.x = (currentPos.x * transform.GetScale().x / heightmap.width) + transform.GetTranslation().x -
+                    transform.GetScale().x / 2.0f;
+    rayIn3DGrid.z = (currentPos.y * transform.GetScale().x / heightmap.width) + transform.GetTranslation().z -
+                    transform.GetScale().x / 2.0f;
+
+    // Get the current height of the ray that is in world space.
+    float t = (rayIn3DGrid.x - cameraPosition.x) / rayWorld.x;
+    float rayHeight = cameraPosition.y + rayWorld.y * t;
+
+    //Is the ray below the terrain? then we have a intersection.
+    if (rayHeight <= vertexOffset)
+    {
+        //Return the mouse position to be at the intersection point. 
+        return glm::vec3(rayIn3DGrid.x, vertexOffset, rayIn3DGrid.z);
+    }
+
+    //No intersection? Shoot the ray a tad bit further
+    currentPos += rayDirHeightmap;
+}
+
+```
 
 If the ray eventually goes under the terrain then thats where we have found an intersection and that is where our new brush position will be. This will be the endresult
 
