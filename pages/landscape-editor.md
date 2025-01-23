@@ -70,11 +70,11 @@ After having loaded in our heightmap data into memory we can access it like this
 ```
 int index = (brush.x * heightmap.width + brush.x) * heightmap.bpp;
 
-//Change all our colour channels.
-heightmap.data[index + 0] = drawingResult; //red
-heightmap.data[index + 1] = drawingResult; //green
-heightmap.data[index + 2] = drawingResult; //blue
-heightmap.data[index + 4] = drawingResult; //alpha
+// Change all our colour channels.
+heightmap.data[index + 0] = drawingResult; // red
+heightmap.data[index + 1] = drawingResult; // green
+heightmap.data[index + 2] = drawingResult; // blue
+heightmap.data[index + 4] = drawingResult; // alpha
 ```
 
 With this we draw 1 pixel at a time but if we put this in a loop and preform a radious check we can have a circular brush!
