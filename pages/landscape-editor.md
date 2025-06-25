@@ -171,7 +171,7 @@ CLOD means that we split our chunk into smaller parts and the further away those
 <h4>Discrete Levels of Detail (DLOD)</h4>
 DLOD means that we make use of chunks in our terrain and the further away the player/camera is from a chunk the lower LoD we apply to that chunk. This means that we have to either store 3 different Levels of detail per chunk into memory or generate them on the fly. 
 
-![CLOD DLOD](assets/media/LoD.png)
+![CLOD DLOD](/assets/images/LoD.png)
 
 So I have a couple of things to keep in mind: 
 - 🟢 CLOD: By far the smallest memory usage when comparing it to DLOD. This is because we are not storing multiple Levels of 1 chunk or not storing triangles we won't need. 
@@ -186,11 +186,11 @@ So I have a couple of things to keep in mind:
 
 This is what the 2 would look like in Engine:
 
-![In Engine example](../evidence/assets/media/COLD_DOLD.png)
+![In Engine example](/assets/images/COLD_DOLD.png)
 
 You can clearly see that CLOD looks visually more pleasing because there is a more gradual flow between the different levels of detail. In DLOD you can see that everything is a bit more cut-off. Also in the CLOD you can see that area's that are really far away which the user will not see are almost fully optimized away because its just a couple of triangles. 
 
-![Far CLOD](../evidence/assets/media/Far_CLOD.png)
+![Far CLOD](/assets/images/Far_CLOD.png)
 
 
 Performance: 
