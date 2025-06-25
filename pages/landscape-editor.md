@@ -159,6 +159,54 @@ If the ray eventually goes under the terrain then thats where we have found an i
 ![Raymarching](/assets/images/RayMarching.gif)
 
 
+## Level Of Detail
+
+There are 2 different methods we could use to add LoD to our terrain. 
+1. Continuous Levels of Detail (CLOD)
+2. Discrete Levels of Detail (DLOD)
+
+<h4>Continuous Levels of Detail (CLOD)</h4>
+CLOD means that we split our chunk into smaller parts and the further away those parts are from our player/camera the less triangles we will use for that part. This we cannot store into memory at the start of the program if our camera can move. Thus we'd have to regenerate every close lying landscape chunks everytime our camera moves.  
+
+<h4>Discrete Levels of Detail (DLOD)</h4>
+DLOD means that we make use of chunks in our terrain and the further away the player/camera is from a chunk the lower LoD we apply to that chunk. This means that we have to either store 3 different Levels of detail per chunk into memory or generate them on the fly. 
+
+![CLOD DLOD](assets/media/LoD.png)
+
+So I have a couple of things to keep in mind: 
+- 🟢 CLOD: By far the smallest memory usage when comparing it to DLOD. This is because we are not storing multiple Levels of 1 chunk or not storing triangles we won't need. 
+- 🟢 CLOD: By far the slowest, having to regenerate multiple chunks every time the camera moves is quite expensive. We can reduce the costs by spreading the regeneration over multiple frames but it is still not optimal. 
+- 🔴 CLOD: Best looking, with regenerating in a circular area around the camera we don't see any "popping artifacts" which will occur when we regenerate each chunk seperately. 
+
+
+- 🟢 DLOD: If we store 3 LoD layers into memory per chunk this is could be by far our fastest option during runtime since we won't have to regenerate our map every time the camera moves.
+- 🟢 DLOD: If we don't store the layers into memory and regenerate the chunks every time we move this will be a bit slower.  
+- 🔴 When comparing it to CLOD we might get some "popping artifacts" when the chunks are regenerating. 
+
+
+This is what the 2 would look like in Engine:
+
+![In Engine example](../evidence/assets/media/COLD_DOLD.png)
+
+You can clearly see that CLOD looks visually more pleasing because there is a more gradual flow between the different levels of detail. In DLOD you can see that everything is a bit more cut-off. Also in the CLOD you can see that area's that are really far away which the user will not see are almost fully optimized away because its just a couple of triangles. 
+
+![Far CLOD](../evidence/assets/media/Far_CLOD.png)
+
+
+Performance: 
+
+If we look at memory usage first and we spawn in 625 (25x25) chunks we actually don't see a huge difference in memory usage: 
+- CLOD: 910 MB 
+- DLOD: 1000 MB
+
+This difference was kind of dissapointing to see but also made sense, a huge part of our memory goes to the largest level of detail maps stored into memory and the lower levels don't really take up that much memory, which makes the difference between storing 1 LOD and 3 smaller then expected. 
+
+If we look at frametime we can see that CLOD really tanks in performace (this is a 15x15 chunk map):
+- CLOD: 35-38 ms
+- DLOD: 18-20 ms 
+
+Seeing this I need to make a decision between looks and performance, I think for my usecase (rendering simple terrains for games) using DLOD would be more benifitial. Because with this I can still use big terrains without tanking out on performance. And I also dont think you will really notice the "popping artifacts" that much since in most games will make use of fog/mist. Also game designers can always play around with the distance for every Level of detail to show up and how much the quality goes down every level. 
+
 ## Future improvements
 
 There is still so much to landscape editors that I haven't implemented and uncovered yet. I have for example as of now not yet touched the texuring part of terrain rendering. This could however be done by using [Tri-Planar mapping](https://bgolus.medium.com/normal-mapping-for-a-triplanar-shader-10bf39dca05a) (Article by Ben Golus, sep 17, 2017). 
