@@ -168,52 +168,53 @@ In games LoD (Level of Detail) refers to the complexity of a 3D model. The furth
 There are many different types of LoD'ing we could do to decrease the workload for our computer: shader management, texture quality ([mipmapping](https://en.wikipedia.org/wiki/Mipmap)) and many more. In this article I will focuss on changing the geometry complexity to improve our framerate. 
 
 There are 2 different methods we could use to add LoD to our terrain. 
-1. Continuous Levels of Detail (CLOD)
-2. Discrete Levels of Detail (DLOD)
+1. Continuous Levels of Detail (CLoD)
+2. Discrete Levels of Detail (DLoD)
 
-<h4>Continuous Levels of Detail (CLOD)</h4>
-CLOD means that we split our chunk into smaller parts and the further away those parts are from our player/camera the less triangles we will use for that part. This we cannot store into memory at the start of the program if our camera can move. Thus we'd have to regenerate every close lying landscape chunks everytime our camera moves.  
+<h4>Continuous Levels of Detail (CLoD)</h4>
+CLoD means that we split our chunk into smaller parts and the further away those parts are from our player/camera the less triangles we will use for that part. This we cannot store into memory at the start of the program if our camera can move. Thus we'd have to regenerate every close lying landscape chunks everytime our camera moves.  
 
-<h4>Discrete Levels of Detail (DLOD)</h4>
-DLOD means that we make use of chunks in our terrain and the further away the player/camera is from a chunk the lower LoD we apply to that chunk. This means that we have to either store 3 different Levels of detail per chunk into memory or generate them on the fly. 
+<h4>Discrete Levels of Detail (DLoD)</h4>
+DLOD means that we make use of chunks in our terrain and the further away the player/camera is from a chunk the lower LoD we apply to that chunk. This means that we have to either store 3 different levels of detail per chunk into memory or generate them on the fly. 
 
-![CLOD DLOD](/assets/images/LoD.png)
+![CLoD DLoD](/assets/images/LoD.png)
 
 There are a couple of things to keep in mind: 
 
-CLOD
-- 🟢 CLOD: By far the smallest memory usage when comparing it to DLOD. This is because we are not storing multiple Levels of 1 chunk or not storing triangles we won't need. 
-- 🟢 CLOD: By far the slowest, having to regenerate multiple chunks every time the camera moves is quite expensive. We can reduce the costs by spreading the regeneration over multiple frames but it is still not optimal. 
-- 🔴 CLOD: Best looking, with regenerating in a circular area around the camera we don't see any [popping artifacts](https://en.wikipedia.org/wiki/Popping_(computer_graphics)) which will occur when we regenerate each chunk seperately. 
+CLoD
+- 🟢 CLoD: By far the smallest memory usage when comparing it to DLoD. This is because we are not storing multiple levels of 1 chunk or not storing triangles we won't need. 
+- 🟢 CLoD: Best looking, with regenerating in a circular area around the camera we don't see any [popping artifacts](https://en.wikipedia.org/wiki/Popping_(computer_graphics)) which will occur when we regenerate each chunk seperately. 
+- 🔴 CLoD: By far the slowest, having to regenerate multiple chunks every time the camera moves is quite expensive. We can reduce the costs by spreading the regeneration over multiple frames but it is still not optimal. 
 
-DLOD: 
-- 🟢 DLOD: If we store 3 LoD layers into memory per chunk this is could be by far our fastest option during runtime since we won't have to regenerate our map every time the camera moves.
-- 🟢 DLOD: If we don't store the layers into memory and regenerate the chunks every time we move this will be a bit slower.  
-- 🔴 When comparing it to CLOD we might get some "popping artifacts" when the chunks are regenerating. 
+
+DLoD: 
+- 🟢 DLoD: If we store 3 LoD layers into memory per chunk this could be by far our fastest option during runtime since we won't have to regenerate our map every time the camera moves.
+- 🟢 DLoD: If we don't store the layers into memory and regenerate the chunks every time we move this will be a bit slower.  
+- 🔴 When comparing it to CLoD we might get some "popping artifacts" when the chunks are regenerating. 
 
 
 This is what the 2 would look like in Engine:
 
 ![In Engine example](/assets/images/COLD_DOLD.png)
 
-You can clearly see that CLOD looks visually more pleasing because there is a more gradual flow between the different levels of detail. In DLOD you can see that everything is a bit more cut-off. Also in the CLOD you can see that area's that are really far away which the user will not see are almost fully optimized away because its just a couple of triangles. 
+You can clearly see that CLoD looks visually more pleasing because there is a more gradual flow between the different levels of detail. In DLoD you can see that everything is a bit more cut-off. Also in the CLoD you can see that area's that are really far away which the user will not see are almost fully optimized away because its just a couple of triangles. 
 
-![Far CLOD](/assets/images/Far_CLOD.png)
+![Far CLoD](/assets/images/Far_CLOD.png)
 
 
 Performance: 
 
 If we look at memory usage first and we spawn in 625 (25x25) chunks we actually don't see a huge difference in memory usage: 
-- CLOD: 910 MB 
-- DLOD: 1000 MB
+- CLoD: 910 MB 
+- DLoD: 1000 MB
 
-This difference was kind of dissapointing to see but also made sense, a huge part of our memory goes to the largest level of detail maps stored into memory and the lower levels don't really take up that much memory, which makes the difference between storing 1 LOD and 3 smaller then expected. 
+This difference was kind of dissapointing to see but also made sense, a huge part of our memory goes to the largest level of detail maps stored into memory and the lower levels don't really take up that much memory, which makes the difference between storing 1 LoD and 3 smaller then expected. 
 
-If we look at frametime we can see that CLOD really tanks in performace (this is a 15x15 chunk map):
-- CLOD: 35-38 ms
-- DLOD: 18-20 ms 
+If we look at frametime we can see that CLoD really tanks in performace (this is a 15x15 chunk map):
+- CLoD: 35-38 ms
+- DLoD: 18-20 ms 
 
-Seeing this I need to make a decision between looks and performance, I think for my usecase (rendering simple terrains for games) using DLOD would be more benifitial. Because with this I can still use big terrains without tanking out on performance. And I also dont think you will really notice the "popping artifacts" that much since in most games will make use of fog/mist. Also game designers can always play around with the distance for every Level of detail to show up and how much the quality goes down every level. 
+Seeing this I need to make a decision between looks and performance, I think for my usecase (rendering simple terrains for games) using DLoD would be more beneficial. Because with this I can still use big terrains without tanking out on performance. And I also dont think you will really notice the "popping artifacts" that much since in most games will make use of fog/mist. Also game designers can always play around with the distance for every level of detail to show up and how much the quality goes down every level. 
 
 ## Future improvements
 
