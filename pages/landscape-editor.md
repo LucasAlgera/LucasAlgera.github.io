@@ -161,6 +161,12 @@ If the ray eventually goes under the terrain then thats where we have found an i
 
 ## Level Of Detail
 
+Large landscapes in games come with their limitations. A large triangle count creeps up fast when you have big worlds in your game, so we should do something to limit this workload for the GPU without sacrificing our quality. 
+
+In games LoD (Level of Detail) refers to the complexity of a 3D model. The further away an object is, the lower it's quality can be since we won't see the difference. 
+
+There are many different types of LoD'ing we could do to decrease the workload for our computer: shader management, texture quality ([mipmapping](https://en.wikipedia.org/wiki/Mipmap)) and many more. In this article I will focuss on changing the geometry complexity to improve our framerate. 
+
 There are 2 different methods we could use to add LoD to our terrain. 
 1. Continuous Levels of Detail (CLOD)
 2. Discrete Levels of Detail (DLOD)
@@ -173,12 +179,14 @@ DLOD means that we make use of chunks in our terrain and the further away the pl
 
 ![CLOD DLOD](/assets/images/LoD.png)
 
-So I have a couple of things to keep in mind: 
+There are a couple of things to keep in mind: 
+
+CLOD
 - 🟢 CLOD: By far the smallest memory usage when comparing it to DLOD. This is because we are not storing multiple Levels of 1 chunk or not storing triangles we won't need. 
 - 🟢 CLOD: By far the slowest, having to regenerate multiple chunks every time the camera moves is quite expensive. We can reduce the costs by spreading the regeneration over multiple frames but it is still not optimal. 
-- 🔴 CLOD: Best looking, with regenerating in a circular area around the camera we don't see any "popping artifacts" which will occur when we regenerate each chunk seperately. 
+- 🔴 CLOD: Best looking, with regenerating in a circular area around the camera we don't see any [popping artifacts](https://en.wikipedia.org/wiki/Popping_(computer_graphics)) which will occur when we regenerate each chunk seperately. 
 
-
+DLOD: 
 - 🟢 DLOD: If we store 3 LoD layers into memory per chunk this is could be by far our fastest option during runtime since we won't have to regenerate our map every time the camera moves.
 - 🟢 DLOD: If we don't store the layers into memory and regenerate the chunks every time we move this will be a bit slower.  
 - 🔴 When comparing it to CLOD we might get some "popping artifacts" when the chunks are regenerating. 
@@ -210,7 +218,7 @@ Seeing this I need to make a decision between looks and performance, I think for
 ## Future improvements
 
 There is still so much to landscape editors that I haven't implemented and uncovered yet. I have for example as of now not yet touched the texuring part of terrain rendering. This could however be done by using [Tri-Planar mapping](https://bgolus.medium.com/normal-mapping-for-a-triplanar-shader-10bf39dca05a) (Article by Ben Golus, sep 17, 2017). 
-Or LoD'ing and culling. Heightmaps can be massive and it would help for performance if we only render what we can see and what is further away we render at a lower resolution. 
+We have covered LoD'ing but we could make good use of culling. Heightmaps can be massive and it would help for performance if we only render what we can see.
 Adding in erosion brushes/simulations or more noise based brushes which can more accurately simulate how real mountains would form. 
 
 The list goes on and on and for the time being there is no real end in sight regarding landscape editing. 
