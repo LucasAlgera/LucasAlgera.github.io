@@ -1,1 +1,1 @@
-[Home Page](?page=) - [LinkedIn](https://www.linkedin.com/in/lucas-algera-a5b489301/)
+[Home Page](https://lucasalgera.com/) - [LinkedIn](https://www.linkedin.com/in/lucas-algera-a5b489301/) - [GitHub](https://github.com/LucasAlgera/)
