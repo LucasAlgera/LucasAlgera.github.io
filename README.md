@@ -1,15 +1,15 @@
-# Lucas Algera - Portfolio Website
+## Lucas Algera - Malware Reversing
 
-Hey, my name is Lucas.   
+My name is **Lucas Algera** and I am interested in malware reverse engineering with the focus on the Windows platform.  I am interested in low level systems, obfuscation and anti analysis techniques.    
+I am currently finishing my study on game engine programming at **BUas**.  
 
-I am currently studying Game Engine Programming at Breda University of applied sciences.  
-My main focus lies in reverse engineering malware samples.
+Below are some of my write-ups and some other things I have posted.
 
 ## Malware/CTF write-ups: 
 
 | Sample | Date analysed |
 |---|---|
-|[RaboStealer - rabo-inloggen.com](?page=rabo/rabo)| 2026/06/5|
+|[RaboStealer - rabo-inloggen.com](?page=rabo/rabo)| 2026/06/05|
 |[AsyncRat - meridablancainc.exe ](?page=AsyncRat/AsyncRat)| 2026/05/29|
 |[SmokeLoader's Loading/Anti-Analysis](?page=SmokeLoader/SmokeLoader)|2026/05/20|
 |[MaaS RAT - OneDriveSync.exe](?page=OneDriveSync/OneDriveSync)|2026/05/03|
@@ -21,6 +21,6 @@ My main focus lies in reverse engineering malware samples.
 
 [Writing an ARM64 disassembler from scratch](https://medium.com/@lucasalgera5/writing-an-arm64-disassembler-from-scratch-a7e844a9b583) - Link to Medium
 
-[Writing a Landscape Editor](?page=landscape-editor)
+[Writing a Landscape Editor for game engines](?page=landscape-editor)
 
 
