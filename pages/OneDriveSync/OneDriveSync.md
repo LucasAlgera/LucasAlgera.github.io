@@ -28,7 +28,7 @@ Loading the executable into PE bear and pestudio I see some suspicious imports i
 - Virtual protect + VirtualQuery
 
 Looking at the strings we see a lot of user messages, indicating this could be some type of trojan. 
-![alt text](image-1.png)
+![alt text](/assets/images/OneDriveSync/image-1.png)
 
  
 
@@ -36,7 +36,7 @@ Looking at the strings we see a lot of user messages, indicating this could be s
 ### API hashing
 The IAT shows some suspicious imports but not too much. The reason for this is because this executable dynamically resolves a lot of its API calls using API hashing. Looking around in Ghidra this malware is full of it. 
 
-![alt text](image-2.png)
+![alt text](/assets/images/OneDriveSync/image-2.png)
 
 All these hashes use the same APIResolver function. Using the debugger I was able to let the malware unravel itself without me having to do a whole lot.
 After dynamically resolving these API calls we got a new list of functions which were not yet present in the IAT:
@@ -69,7 +69,7 @@ Having labeled these in Ghidra I can more easily start to statically analyze thi
 ### String obfuscation
 The strings found inside of PE bear are quite useless and are more for convincing analysts/anti-viruses how "safe" this executable is.  
 The actual string deobfuscation happens inside of its own DeobfuscateString functions. 
-![alt text](image-8.png)
+![alt text](/assets/images/OneDriveSync/image-8.png)
 
 These are also very easy to dynamically resolve using the debugger. For example, the data held in DAT_14001f5a0 became `"SOFTWARE\\\\Microsoft\\\\Windows Defender\\\\Exclusions\\\\Paths"` after having gone through this deobfuscation function.  
 
@@ -82,16 +82,16 @@ This executable does quite a lot of things to make sure it stays in the infected
 Using SHGetFolderPathA, the executable gets the direct path to `C:\Users\<username>\AppData\Local\Microsoft\OneDrive`. After which it copies itself from the Downloads folder to this folder where it will name itself `OneDriveSync.exe`.  
 To make sure it is harder to detect the malware will get the path to notepad.exe inside of `Windows\system32` and it will get the last modified date of notepad and sets its own file time to that of notepad's. This is done using the SetFileTime function. 
 
-![onedrive folder](image-9.png)  
+![onedrive folder](/assets/images/OneDriveSync/image-9.png)  
 
 After this it will copy itself into a stream inside desktop.ini. The reason it uses streams is because this makes sure the filesize stays 0 (see image above), it exists in a stream of the file and not the file itself.   
 It uses desktop.ini:SyncData as a stream. 
 
 This is proven by using `Get-Item "desktop.ini" -Stream *`:   
-![stream](image-10.png)  
+![stream](/assets/images/OneDriveSync/image-10.png)  
 And by using `Get-Content "desktop.ini" -Stream SyncData`:  
 We can see the beginnings of a windows PE file. 
-![alt text](image-11.png)
+![alt text](/assets/images/OneDriveSync/image-11.png)
 
 
 ### Cool PEB stuff
@@ -105,7 +105,7 @@ ProcessParameters.CommandLine = `"C:\\Windows\\system32\\RuntimeBroker.exe -Embe
 
 Doing this, the malware changes its complete appearance for every other program that accesses the PEB for identification (e.g. process explorer and task manager). The reason the malware hides as RuntimeBroker.exe is because it is a very common background task to run. This is quite an easy but sneaky way to trick analysts. 
 
-![alt text](image-14.png)
+![alt text](/assets/images/OneDriveSync/image-14.png)
 
 ### Anti Defender
 The malware uses multiple instances of the registry to change settings in the OS to go undetected. Programs can't just go ahead and change a bunch of settings in Microsoft Defender, but its easier than you might think. 
@@ -113,7 +113,7 @@ The malware uses multiple instances of the registry to change settings in the OS
 This malware first tries to manually add itself as an exclusion by accessing `HKLM\SOFTWARE\Microsoft\Windows Defender\Exclusions\Paths`. Though when it tries to do this the OS will probably deny this request.  
 If that is the case the malware accesses the registry key TamperProtection inside of `Windows Defender\Features`. It turns that off and then it tries to access the earlier registry key again and succeeds.  
 After succeeding it will turn off all of these registry values which protect the user from malware. 
-![alt text](image-12.png)
+![alt text](/assets/images/OneDriveSync/image-12.png)
 
 *Note: Normally unprivileged programs such as these are not allowed to touch TamperProtection, but here it can since my Virtual Machine sandbox has a bunch of MSDefender features turned off.*
 
@@ -122,7 +122,7 @@ In order to keep running, even when the user closes their PC, the malware does t
 - Puts itself (OneDriveSync.exe) inside of the `HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run` registry, where it calls itself: MicrosoftEdgeUpdateSvc. 
 - Puts itself (OneDriveSync.exe) inside of the `HKCU\Environment\UserInitMprLogonScript` registry, where again it calls itself: MicrosoftEdgeUpdateSvc.
 - Adds itself as a startup app   
-![alt text](image-13.png)
+![alt text](/assets/images/OneDriveSync/image-13.png)
 
 ## The Logic/payload
 

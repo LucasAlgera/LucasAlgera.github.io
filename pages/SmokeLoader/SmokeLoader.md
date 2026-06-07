@@ -24,7 +24,7 @@ The first stage of SmokeLoader is a setup and the unpacking of code which eventu
 ### 1.1 Indications of Stack Spoofing
 The first thing SmokeLoader does before it enters it's loading part of the code is load and switch around a lot of data in the stack. To me this is a signal of stack spoofing and/or prepping the stack for the unpacking.
 
-![Stack](image-6.png)
+![Stack](/assets/images/SmokeLoader/image-6.png)
 
 ### 1.2 Unpacking into memory
 SmokeLoader first writes some encrypted bytes into a place in memory.   
@@ -54,7 +54,7 @@ Loading this newly allocated code into Ghidra I saw it did 2 things:
 ## Stage 2 - Anti Analysis 
 Entering stage 2 I immediately saw a bunch of heavily obfuscated assembly instructions.  
 
-![Stage 2 entry](image-7.png)   
+![Stage 2 entry](/assets/images/SmokeLoader/image-7.png)   
 
 SmokeLoader uses a combination of techniques which makes code analysis a lot harder: 
 1. **Control flow obfuscation:** Smoke sometimes enters long jumpchains and does not use call instructions how they were intended. By altering the return address stored in the callstack (callstack spoofing), the `RET` instruction doesn't do it's expected behavior anymore. 
@@ -122,7 +122,7 @@ I solved these problems by creating these 2 simple scripts in Python and C++:
     ```
 
     This converted the disassembly from an unreadable state to an   easier to read state:  
-    ![code transformation](image-10.png)
+    ![code transformation](/assets/images/SmokeLoader/image-10.png)
 
     With this I can now easier spot what SmokeLoader is trying to do    instead of getting lost in jump loops. 
 
@@ -130,7 +130,7 @@ I solved these problems by creating these 2 simple scripts in Python and C++:
 ### Stealthy in memory
 SmokeLoader uses Decrypt On Demand mechanism in it's code to avoid detection from antivirus memory scanners. This pretty much means that all of it's code in this 2nd Stage is encrypted in memory and only decrypted right before it needs it.  
 For this it uses a simple xor algorithm where the key is stored in EDX:  
-![decryption](image-11.png)  
+![decryption](/assets/images/SmokeLoader/image-11.png)  
 After the decrypted code is ran Smoke of course encrypts it again to stay as stealthy as possible. 
 
 ### Anti Analysis Checks

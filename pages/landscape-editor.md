@@ -1,7 +1,7 @@
 # Exploring Landscape Editors in game engines. 
 _Lucas / January 22, 2025_
 
-![banner + Logo](/assets/images/banner.png)
+![banner + Logo](/assets/images/landscape-editor/banner.png)
 
 ## Introduction
 
@@ -45,7 +45,7 @@ We can then use this height to offset each one of our vertices:
 
 By doing this we don't have to remake our mesh every time it changes and it's very cost efficient. 
 
-![Vertex offsetting illustration](/assets/images/VertexShaderHeightmap.png)
+![Vertex offsetting illustration](/assets/images/landscape-editor/VertexShaderHeightmap.png)
 
 And that is basically it when it comes to the terrain rendering. 
 
@@ -89,7 +89,7 @@ A good landscape editor should have a variety of different brushes in it's arsen
 
 Maybe aside from the texture brush all of these are needed to make basic terrains. And adding a brush strength and brush size parameter will help with the usability. 
 
-![Brushes showcase](/assets/images/BrushTypes.png)
+![Brushes showcase](/assets/images/landscape-editor/BrushTypes.png)
 
 Most of the brushes you would want to have can be created with mathematical functions. 
 For example the **circular brush** is just a radius check and for the **falloff brush** we multiply the brush's distance from center to the brush strength so the further away from the center we are the lower the terrain is. 
@@ -107,11 +107,11 @@ A bit later into making this tool I stumbled upon an issue. When for the CPU the
 After some pondering I decided to try to raymarch the heightmap. 
 First off we shoot a ray from the camera and calculate it's entry and exit point from the terrain. 
 
-![Landscape Ray](/assets/images/LandscapeRay.png)
+![Landscape Ray](/assets/images/landscape-editor/LandscapeRay.png)
 
 After having these points we convert the ray into heightmap space and for every pixel in that heightmap that the ray shoots over we check if the ray in worldspace is above or under the terrain + the vertexoffset of that pixel. 
 
-![Heightmap Ray](/assets/images/HeightmapRay.gif)
+![Heightmap Ray](/assets/images/landscape-editor/HeightmapRay.gif)
 
 ```
 // The EntryLocalCoordinates are the coordinates in heightmap space where the ray first enters the grid. 
@@ -156,7 +156,7 @@ for (int step = 0; step < maxSteps; step++)
 
 If the ray eventually goes under the terrain then thats where we have found an intersection and that is where our new brush position will be. This will be the endresult
 
-![Raymarching](/assets/images/RayMarching.gif)
+![Raymarching](/assets/images/landscape-editor/RayMarching.gif)
 
 
 ## Level Of Detail
@@ -177,7 +177,7 @@ CLoD means that we split our chunk into smaller parts and the further away those
 <h4>Discrete Levels of Detail (DLoD)</h4>
 DLOD means that we make use of chunks in our terrain and the further away the player/camera is from a chunk the lower LoD we apply to that chunk. This means that we have to either store 3 different levels of detail per chunk into memory or generate them on the fly. 
 
-![CLoD DLoD](/assets/images/LoD.png)
+![CLoD DLoD](/assets/images/landscape-editor/LoD.png)
 
 There are a couple of things to keep in mind: 
 
@@ -195,11 +195,11 @@ DLoD:
 
 This is what the 2 would look like in Engine:
 
-![In Engine example](/assets/images/COLD_DOLD.png)
+![In Engine example](/assets/images/landscape-editor/COLD_DOLD.png)
 
 You can clearly see that CLoD looks visually more pleasing because there is a more gradual flow between the different levels of detail. In DLoD you can see that everything is a bit more cut-off. Also in the CLoD you can see that area's that are really far away which the user will not see are almost fully optimized away because its just a couple of triangles. 
 
-![Far CLoD](/assets/images/Far_CLOD.png)
+![Far CLoD](/assets/images/landscape-editor/Far_CLOD.png)
 
 
 Performance: 

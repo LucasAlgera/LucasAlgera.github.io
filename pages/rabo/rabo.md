@@ -23,26 +23,26 @@ This link goes to:  [rabo-inloggen.com/r/direct](rabo-inloggen.com/r/direct)
 ## The webpage
 https://rabo-inloggen.com/r/direct redirects the victim to https://rabo-inloggen.com/r/direct/step/card-details. 
 
-![enter credentials page](image.png)
+![enter credentials page](/assets/images/RaboStealer/image.png)
 
 This website functions as a phishing kit for harvesting payment card information. It uses Socket.io to have a stream-like connection between the server and the user. Socket.io communicates with the server over the https port: `199.91.220.65:443`.   
 This is what me typing `PHISHING` into the `cardName` field probably looks like this to the server:  
-![informing server](image-3.png)  
+![informing server](/assets/images/RaboStealer/image-3.png)  
 Like this the user does not even need to hit send, the server watches every key typed.  
 Next to this the server keeps a heartbeat every 10 seconds with the user, making sure the connection is still valid.  
 
 After hitting 'send' the user is prompted with the following pages before being redirected to https://www.rabobank.nl/particulieren to make the entire process seem legit. 
 
-![loading...](image-4.png)
+![loading...](/assets/images/RaboStealer/image-4.png)
 
-![verification ](image-5.png)
+![verification ](/assets/images/RaboStealer/image-5.png)
 
 ## Server hosting
 Looking at additional IP information at https://www.abuseipdb.com/check/199.91.220.65, we can see that the website is hosted using blnwx.com. 
 > blnwx.com belongs to BL Networks (also known as BitLaunch), an autonomous system and web hosting provider. Operating primarily as a Virtual Private Server (VPS) reseller and hosting network, the platform allows users to provision servers anonymously. 
 
 The best I can do at this point is the following:   
-![report phishing to blnwx](image-2.png)
+![report phishing to blnwx](/assets/images/RaboStealer/image-2.png)
 
 
 ## Timeline

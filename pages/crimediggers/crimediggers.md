@@ -30,16 +30,16 @@ Dit keer was de uitkomst een request van een domain genaamd startup.bedrijfje.lo
 Nu geeft de malware aan: [-] Default VM MAC detected. 
 
 De malware checkt of het in een VM zit door de grootte van de C:\ schijf te checken en door te kijken of het MAC adress een standaard VM adress is.   
-![alt text](VMChecks.png)
+![alt text](/assets/images/crimediggers/VMChecks.png)
 
 ## De malware analyseren in dnSpy
 
 Ik opende de executable in dnSpy en kreeg gelijk de .NET code te zien. 
 Ik ga naar de eerder gevonden shellcodeRunner functie en zie dat er door middel van een vrij simpele decription een array aan bytes wordt omgetoverd tot een aanroepbaar command.  
-![alt text](decryption.png)
+![alt text](/assets/images/crimediggers/decryption.png)
 
 Door middel van een simpel python script doe ik exact hetzelfde en dump ik de uitkomst naar een bestand.  
-![alt text](output.png)
+![alt text](/assets/images/crimediggers/output.png)
 
 Hier valt natuurlijk gelijk het powershell command op.  
 Na een snelle raadpleging aan Google wist ik dat de -enc parameter wordt gebruikt om het script te laten runnen terwijl het geencode is in Base64. 

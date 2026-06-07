@@ -7,7 +7,7 @@ Babuk is a well known ransomware as-a-service, having mostly targeted large ente
 
 ## Quick PE analysis 
 Opening the file in pestudio we can see a bunch of suspicious imports:  
-![Imports](imports.png)  
+![Imports](/assets/images/babuk/imports.png)  
 The ones that really catch my eye are: **WriteFile, ShellExecuteW, WNetGetConnection** and **OpenSCManagerA**.
 
 When executing strings on babuk.exe we see a bunch of familiar programs, e.g.: steam.exe, notepad.exe, excel.exe, etc. The malware might be looking for these processes to steal data or do something else.    
@@ -15,7 +15,7 @@ I also see a bunch of drive directories indicating it might look for/do somethin
 Next to this we also see the names of popular browsers such as Chrome and Brave.  
 
 We also see their README message to the victim:   
-![Message](message.png)
+![Message](/assets/images/babuk/message.png)
 
 An interesting addres to note down is `http://babukq4e2p4wu4iq.onion/login.php?id=8M68J4vCbbkKgM6QnA07E9qpkn8QK7`. This is likely where they will ask the victim to pay them a certain amount (in crypto) to decrypt the files.
 
@@ -30,7 +30,7 @@ The program sets what to do with lan networks according to what is used as argum
 - "lansecond"
 - "nolan"
 
-![Arument resolving](argresolving.png)
+![Arument resolving](/assets/images/babuk/argresolving.png)
 ### 2. Setting priority over other processes
 The malware uses `SetProcessShutdownParameters(0,0)` to set its shutdown priority as low as possible, which could give the program more time to execute its code. 
 
@@ -41,7 +41,7 @@ After some quick research I found out this is done to release file locks so the 
 
 ### 4. Removes snapshots & Recycle Bin
 The malware then removes all snapshots taken of the OS so data resetting cant happen. It does this via a shellcommand: `vssadmin.exe delete shadows /all /quiet`. Next to this it also wipes the recycle bin. 
-![shellcode](shellcode.png)
+![shellcode](/assets/images/babuk/shellcode.png)
 
 ### 5. ecdh_pub_k.bin in APPDATA
 At some point the malware creates a file called "ecdh_pub_k.bin" inside of the APPDATA folder. Since we're dealing with randsomeware this file could possibly contain de decryption keys *(ecdh_public_keys.bin ?)*. Or the combination of the attacker's keys + these public keys resort in file decryption. 
@@ -52,7 +52,7 @@ The files are all encrypted and get a **.__NIST_K571__** file extension.
 Nist K571 is , according to the [Standard curve database](https://std.neuromancer.sk/nist/K-571.), a 571-bit binary field Weierstrass curve also known as the Koblitz curve. This curve is used a lot in elliptic curve cryptography (ECC), which the attackers probably also use for their encryption. 
 ## Some dynamic analysis
 When we let the program run in a debugger we can see as soon as WriteFile is called that a new file spawns in APPDATA/Roaming. This is our earlier spotted ecdh_pub_k.bin. I suspect that these may be the decryption keys stored on our local machine. In total 144 bytes are written to this file.   
-![Keys](key.png)  
+![Keys](/assets/images/babuk/key.png)  
 The suspected public key would be:
 쿣2⩳뭺꿴廼ȏ㷟갂铵�ನ聲휉펿ᅌ⩡骆�⊌곴艏䠚ؠ쌖ᬏ뷵䰝鷒戣˖�ݛ姱⹵｠܍졐鎮驨੾漆캹ḱ谗픝蒒⢫퀙ṍ櫯ሑ햽식驂㙽晐堢咱ꮟⓘ⦏雥븋օ
 

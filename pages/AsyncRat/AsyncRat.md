@@ -108,7 +108,7 @@ The malware decides its persistence based on its privilege level.
 `/c schtasks /create /f /sc onlogon /rl highest /tn \"meridablancainc.exe"\" /tr '\""{C:\Users\malware\AppData\Local\Temp\meridablancainc.exe}"\"' & exit"`  
 This command creates a scheduled task which gets run on logon with admin privileges. It targets the executable that will be inside AppData/Local. 
 
-- If the malware has **User Privileges**, it will go into the Run registry key and will place itself there.   ![alt text](image.png)
+- If the malware has **User Privileges**, it will go into the Run registry key and will place itself there.   ![alt text](/assets/images/AsyncRat/image.png)
 
 After this the malware copies itself into `C:\Users\malware\AppData\Local\Temp\meridablancainc.exe`.
 
@@ -123,7 +123,7 @@ DEL "tmp7496.tmp.bat" /f /q
 This script starts the newly written to meridablancainc.exe and deletes the temporary .bat file. 
 
 This batch script is then run like this:  
-![New process run](image-1.png)  
+![New process run](/assets/images/AsyncRat/image-1.png)  
 
 
 ### Setting process flags
@@ -195,7 +195,7 @@ The malware establishes a TCP based connection using the .NET Socket structure. 
     - SavePlugin: Downloads the raw bytes of this DLL, stores it in the registry and runs the DLL.   
 
 
-![illustration](RAT.png)  
+![illustration](/assets/images/AsyncRat/RAT.png)  
 *This is what the structure globally looks like.* 
 
 
@@ -208,12 +208,12 @@ After having pinged meridablancainc.it.com to see whether the site is up and run
 
 Visiting the website I was welcomed with a vietnamese sport gambling website.  
 The website impersonated fb88.com which is an legitimate sport gambling website in Asia. Though whenever I clicked something on the site some JS started running and installed these extensions to my Google Chrome:  
-![Extensions](<Screenshot 2026-05-27 212957.png>)  
+![Extensions](</assets/images/AsyncRat/Screenshot 2026-05-27 212957.png>)  
 These all look like some crypto wallet/password managing extensions. 
 
 ### Server taken down
 1 day after having pinged the website the server all of the sudden did not respond anymore.  
-![Server down](<Screenshot 2026-05-29 150247.png>)  
+![Server down](</assets/images/AsyncRat/Screenshot 2026-05-29 150247.png>)  
 This could have a couple of reasons: 
 1. The server noticed my pings in the logs and went on a temporary shutdown to prevent analysis. 
 2. The server noticed my pings in the logs and the people running the network decided to stop it and port the C2 server to another location. 
