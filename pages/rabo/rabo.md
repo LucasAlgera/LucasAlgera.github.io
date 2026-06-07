@@ -16,7 +16,7 @@ success.html	|2e80fcf94e6a6d079bf40a34e67f26d3	|084f87e2cf923a2cbf666b542807c1bb
 
 ## Phishing attempt
 
-![phishing message](image-6.png)
+![phishing message](/assets/images/RaboStealer/image-6.png)
 
 This link goes to:  [rabo-inloggen.com/r/direct](rabo-inloggen.com/r/direct)
 
