@@ -1,14 +1,16 @@
 ## Lucas Algera - Malware Reversing
 
-My name is **Lucas Algera** and I am interested in malware reverse engineering with the focus on the Windows platform.  I am interested in low level systems, obfuscation and anti analysis techniques.    
-I am currently finishing my study on game engine programming at **BUas**.  
+My name is **Lucas Algera** and I like malware reverse engineering.  I focus mainly on the Windows platform.  I am interested in low level systems, obfuscation and anti analysis techniques.    
+I am currently finishing my Creative Media and Game Technologies study as a game engine programmer at **BUas**.  
 
 Below are some of my write-ups and some other things I have posted.
 
 ## Malware/CTF write-ups: 
 
-| Sample | Date analysed |
+| Sample | Date |
 |---|---|
+| [Infostealers Part 2/2 - StealC deep dive](?page=StealC/StealC)| 2026/07/03|
+| [Infostealers Part 1/2 - Amadey's loader](?page=Amadey/Amadey) | 2026/07/01|
 |[RaboStealer - rabo-inloggen.com](?page=rabo/rabo)| 2026/06/05|
 |[AsyncRat - meridablancainc.exe ](?page=AsyncRat/AsyncRat)| 2026/05/29|
 |[SmokeLoader's Loading/Anti-Analysis](?page=SmokeLoader/SmokeLoader)|2026/05/20|
