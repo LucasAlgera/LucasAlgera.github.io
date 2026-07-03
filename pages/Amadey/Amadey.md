@@ -115,7 +115,7 @@ Using the commands specified above, Amadey has been known to drop off a couple o
 3. **StealC:**  
     One of amadey's drops is known to be StealC. An interesting thing found in the case of these infostealers was that these two shared the same C2 infrastructure. This allowed law enforcement to simultaneously take them down.  
 
-    View my StealC analysis [here](https://lucasalgera.com/?page=/?page=StealC/StealC).  
+    View my StealC analysis [here](https://lucasalgera.com/?page=StealC/StealC).  
     Read more about the takedown here: 
     - https://www.politie.nl/nieuws/2026/juni/24/11-operatie-endgame-opnieuw-twee-infostealers-offline.html
     - https://www.microsoft.com/en-us/security/blog/2026/06/24/stealc-and-amadey-breaking-down-infostealers-and-the-cybercrime-services-that-deliver-them/
