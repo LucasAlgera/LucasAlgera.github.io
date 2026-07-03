@@ -108,7 +108,7 @@ I used the following script from @hsauers5 https://gist.github.com/hsauers5/491f
 
 ---
 
-*View the Python RC4 + Base64 decryption script I used **[here](rc4_and_base64.py)**.*
+*View the Python RC4 + Base64 decryption script I used **[here](https://github.com/LucasAlgera/LucasAlgera.github.io/blob/main/pages/StealC/rc4_and_base64.py)**.*
 
 ### Communication with C2 - Receiving stealer config
 After having decrypted and resolved all API's, StealC starts receiving and sending data from/to it's C2 server. It communicates to the C2 over php: `http://196.251.107.130/16b022998f754137b60a.php` and uses InternetCrackUrlW() to parse this URL.    
