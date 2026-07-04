@@ -46,7 +46,7 @@ Finally this file is ran using `ShellExecuteA(0, "open", "xfpbr.exe")`.
 ### String decoding
 Amadey decodes the following strings using the same XOR algorithm as before.  
 
-![alt text](/assets/images/Amadey/<Screenshot 2026-07-03 184123.png>)
+![alt text](/assets/images/Amadey/strings.png)
 
 This time we get the following strings: 
 
@@ -82,7 +82,7 @@ This data is then encrypted using an RC4 stream cipher algorithm. For this it us
 Amadey tries to make a HTTP POST request using `HttpOpenRequestA()` to 2 IP addresses. It first tries `62.60.226.159`, if that fails it tries `196.251.107.104`. Amadey then sends the encrypted data to `/xvzpjyddlu/getdata.php` over port 80.
 
 The C2 posting logic looks fairly straight forward:  
-![C2 posting](/assets/images/Amadey/<Screenshot 2026-07-03 190451.png>)
+![C2 posting](/assets/images/Amadey/C2.png)
 
 Within this function, Amadey also tries to retrieve some data from the server. This again goes via either `62.60.226.159` or `196.251.107.104` over `/xvzpjyddlu/getdata.php`. This RC4 encrypted data is a set of instructions given to Amadey by the C2 server. 
 
