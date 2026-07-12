@@ -14,19 +14,19 @@ Below are some of my write-ups and some other things I have posted.
 <div class="post">
 <h2><a href="?page=StealC/StealC">Infostealers Part 2/2 - StealC deep dive</a></h2>
 <div class="meta">
-📅 July 3, 2026 • ⏱ 15 minute read
+<i class="fa-solid fa-calendar-days"></i> July 3, 2026 •
+<i class="fa-regular fa-clock"></i> 15 minute read
 </div>
 <p>
-Reverse engineering StealC's architecture, unpacking,
-configuration extraction, networking and credential theft.
+Reverse engineering StealC's architecture, unpacking, configuration extraction, networking and credential theft.
 </p>
 </div>
 
 <div class="post">
 <h2><a href="?page=Amadey/Amadey">Infostealers Part 1/2 - Amadey's loader</a></h2>
 <div class="meta">
-📅 July 1, 2026 • ⏱ 7 minute read
-</div>
+<i class="fa-solid fa-calendar-days"></i> July 1, 2026 •
+<i class="fa-regular fa-clock"></i> 7 minute read</div>
 <p>
 Exploring how Amadey loads other malware and it's communication with a C2. 
 </p>
@@ -35,8 +35,8 @@ Exploring how Amadey loads other malware and it's communication with a C2.
 <div class="post">
 <h2><a href="?page=rabo/rabo">RaboStealer - rabo-inloggen.com</a></h2>
 <div class="meta">
-📅 June 5, 2026 • ⏱ 2 minute read
-</div>
+<i class="fa-solid fa-calendar-days"></i> June 5, 2026 •
+<i class="fa-regular fa-clock"></i> 2 minute read</div>
 <p>
 Looking at the capabilities of a simple stealing kit which targets Rabobank users. 
 </p>
@@ -45,8 +45,8 @@ Looking at the capabilities of a simple stealing kit which targets Rabobank user
 <div class="post">
 <h2><a href="?page=AsyncRat/AsyncRat">AsyncRat - meridablancainc.exe</a></h2>
 <div class="meta">
-📅 May 29, 2026 • ⏱ 5 minute read
-</div>
+<i class="fa-solid fa-calendar-days"></i> May 29, 2026 •
+<i class="fa-regular fa-clock"></i> 5 minute read</div></div>
 <p>
 Exploring AsyncRat and some open source research into the C2.  
 </p>
@@ -56,8 +56,8 @@ Exploring AsyncRat and some open source research into the C2.
 <div class="post">
 <h2><a href="?page=SmokeLoader/SmokeLoader">SmokeLoader's Loading/Anti-Analysis</a></h2>
 <div class="meta">
-📅 May 20, 2026 • ⏱ 6 minute read
-</div>
+<i class="fa-solid fa-calendar-days"></i> May 20, 2026 •
+<i class="fa-regular fa-clock"></i> 6 minute read</div></div>
 <p>
 Reverse engineering SmokeLoader's multi-stage loading process, focusing on its unpacking routine, anti-analysis techniques, code obfuscation, and process injection.
 </p>
@@ -67,8 +67,8 @@ Reverse engineering SmokeLoader's multi-stage loading process, focusing on its u
 <div class="post">
 <h2><a href="?page=OneDriveSync/OneDriveSync">MaaS RAT - OneDriveSync.exe</a></h2>
 <div class="meta">
-📅 May 7, 2026 • ⏱ 2 minute read
-</div>
+<i class="fa-solid fa-calendar-days"></i> May 7, 2026 •
+<i class="fa-regular fa-clock"></i> 7 minute read</div></div>
 <p>
 Reversing a Windows RAT which disguises itself as OneDriveSync. 
 </p>
@@ -77,8 +77,8 @@ Reversing a Windows RAT which disguises itself as OneDriveSync.
 <div class="post">
 <h2><a href="?page=Babuk/Babuk">Ransomware - babuk.exe</a></h2>
 <div class="meta">
-📅 March 17, 2026 • ⏱ 3 minute read
-</div>
+<i class="fa-solid fa-calendar-days"></i> March 17 5, 2026 •
+<i class="fa-regular fa-clock"></i> 3 minute read</div></div>
 <p>
 Looking into Babuk ransomware
 </p>
@@ -87,8 +87,8 @@ Looking into Babuk ransomware
 <div class="post">
 <h2><a href="?page=crimediggers/crimediggers">Crimediggers Politie - dropper.exe</a></h2>
 <div class="meta">
-📅 March 15, 2026 • ⏱ 3 minute read
-</div>
+<i class="fa-solid fa-calendar-days"></i> March 15, 2026 •
+<i class="fa-regular fa-clock"></i> 3 minute read</div></div>
 <p>
 A CTF made by Politie NL
 </p>
@@ -103,8 +103,8 @@ A CTF made by Politie NL
 <div class="post">
 <h2><a href="https://medium.com/@lucasalgera5/writing-an-arm64-disassembler-from-scratch-a7e844a9b583">Writing an ARM64 disassembler from scratch</a></h2>
 <div class="meta">
-📅 Jan 3, 2026 • ⏱ 11 minute read
-</div>
+<i class="fa-solid fa-calendar-days"></i> January 3, 2026 •
+<i class="fa-regular fa-clock"></i> 11 minute read</div></div>
 <p>
 Writing an ARM64 disassembler from scratch, exploring how modern disassemblers do this and going deeper into assembly concepts. 
 </p>
@@ -113,8 +113,8 @@ Writing an ARM64 disassembler from scratch, exploring how modern disassemblers d
 <div class="post">
 <h2><a href="?page=landscape-editor">Writing a Landscape Editor for game engines</a></h2>
 <div class="meta">
-📅 January 22, 2025 • ⏱ 10 minute read
-</div>
+<i class="fa-solid fa-calendar-days"></i> January 22, 2025 •
+<i class="fa-regular fa-clock"></i> 10 minute read</div></div>
 <p>
 An article on how to write a 3D landscape editor in (custom) game engines. 
 </p>
