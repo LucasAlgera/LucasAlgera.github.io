@@ -5,24 +5,118 @@ I am currently finishing my Creative Media and Game Technologies study as a game
 
 Below are some of my write-ups and some other things I have posted.
 
-## Malware/CTF write-ups: 
+<br>
 
-| Sample | Date |
-|---|---|
-| [Infostealers Part 2/2 - StealC deep dive](?page=StealC/StealC)| 2026/07/03|
-| [Infostealers Part 1/2 - Amadey's loader](?page=Amadey/Amadey) | 2026/07/01|
-|[RaboStealer - rabo-inloggen.com](?page=rabo/rabo)| 2026/06/05|
-|[AsyncRat - meridablancainc.exe ](?page=AsyncRat/AsyncRat)| 2026/05/29|
-|[SmokeLoader's Loading/Anti-Analysis](?page=SmokeLoader/SmokeLoader)|2026/05/20|
-|[MaaS RAT - OneDriveSync.exe](?page=OneDriveSync/OneDriveSync)|2026/05/03|
-|[Ransomware - babuk.exe](?page=Babuk/Babuk) | 2026/03/17|
-|[Crimediggers Politie - dropper.exe](?page=crimediggers/crimediggers)|2026/03/15|
+### Malware/CTF write-ups: 
+
+<hr>
+
+<div class="post">
+<h2><a href="?page=StealC/StealC">Infostealers Part 2/2 - StealC deep dive</a></h2>
+<div class="meta">
+📅 July 3, 2026 • ⏱ 15 minute read
+</div>
+<p>
+Reverse engineering StealC's architecture, unpacking,
+configuration extraction, networking and credential theft.
+</p>
+</div>
+
+<div class="post">
+<h2><a href="?page=Amadey/Amadey">Infostealers Part 1/2 - Amadey's loader</a></h2>
+<div class="meta">
+📅 July 1, 2026 • ⏱ 7 minute read
+</div>
+<p>
+Exploring how Amadey loads other malware and it's communication with a C2. 
+</p>
+</div>
+
+<div class="post">
+<h2><a href="?page=rabo/rabo">RaboStealer - rabo-inloggen.com</a></h2>
+<div class="meta">
+📅 June 5, 2026 • ⏱ 2 minute read
+</div>
+<p>
+Looking at the capabilities of a simple stealing kit which targets Rabobank users. 
+</p>
+</div>
+
+<div class="post">
+<h2><a href="?page=AsyncRat/AsyncRat">AsyncRat - meridablancainc.exe</a></h2>
+<div class="meta">
+📅 May 29, 2026 • ⏱ 5 minute read
+</div>
+<p>
+Exploring AsyncRat and some open source research into the C2.  
+</p>
+</div>
 
 
-## Other articles
+<div class="post">
+<h2><a href="?page=SmokeLoader/SmokeLoader">SmokeLoader's Loading/Anti-Analysis</a></h2>
+<div class="meta">
+📅 May 20, 2026 • ⏱ 6 minute read
+</div>
+<p>
+Reverse engineering SmokeLoader's multi-stage loading process, focusing on its unpacking routine, anti-analysis techniques, code obfuscation, and process injection.
+</p>
+</div>
 
-[Writing an ARM64 disassembler from scratch](https://medium.com/@lucasalgera5/writing-an-arm64-disassembler-from-scratch-a7e844a9b583) - Link to Medium
 
-[Writing a Landscape Editor for game engines](?page=landscape-editor)
+<div class="post">
+<h2><a href="?page=OneDriveSync/OneDriveSync">MaaS RAT - OneDriveSync.exe</a></h2>
+<div class="meta">
+📅 May 7, 2026 • ⏱ 2 minute read
+</div>
+<p>
+Reversing a Windows RAT which disguises itself as OneDriveSync. 
+</p>
+</div>
 
+<div class="post">
+<h2><a href="?page=Babuk/Babuk">Ransomware - babuk.exe</a></h2>
+<div class="meta">
+📅 March 17, 2026 • ⏱ 3 minute read
+</div>
+<p>
+Looking into Babuk ransomware
+</p>
+</div>
+
+<div class="post">
+<h2><a href="?page=crimediggers/crimediggers">Crimediggers Politie - dropper.exe</a></h2>
+<div class="meta">
+📅 March 15, 2026 • ⏱ 3 minute read
+</div>
+<p>
+A CTF made by Politie NL
+</p>
+</div>
+
+
+<br>
+
+### Other articles
+
+<hr>
+<div class="post">
+<h2><a href="https://medium.com/@lucasalgera5/writing-an-arm64-disassembler-from-scratch-a7e844a9b583">Writing an ARM64 disassembler from scratch</a></h2>
+<div class="meta">
+📅 Jan 3, 2026 • ⏱ 11 minute read
+</div>
+<p>
+Writing an ARM64 disassembler from scratch, exploring how modern disassemblers do this and going deeper into assembly concepts. 
+</p>
+</div>
+
+<div class="post">
+<h2><a href="?page=landscape-editor">Writing a Landscape Editor for game engines</a></h2>
+<div class="meta">
+📅 January 22, 2025 • ⏱ 10 minute read
+</div>
+<p>
+An article on how to write a 3D landscape editor in (custom) game engines. 
+</p>
+</div>
 
