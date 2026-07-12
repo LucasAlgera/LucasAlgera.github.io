@@ -46,7 +46,7 @@ Looking at the capabilities of a simple stealing kit which targets Rabobank user
 <h2><a href="?page=AsyncRat/AsyncRat">AsyncRat - meridablancainc.exe</a></h2>
 <div class="meta">
 <i class="fa-solid fa-calendar-days"></i> May 29, 2026 •
-<i class="fa-regular fa-clock"></i> 5 minute read</div></div>
+<i class="fa-regular fa-clock"></i> 5 minute read</div>
 <p>
 Exploring AsyncRat and some open source research into the C2.  
 </p>
@@ -57,7 +57,7 @@ Exploring AsyncRat and some open source research into the C2.
 <h2><a href="?page=SmokeLoader/SmokeLoader">SmokeLoader's Loading/Anti-Analysis</a></h2>
 <div class="meta">
 <i class="fa-solid fa-calendar-days"></i> May 20, 2026 •
-<i class="fa-regular fa-clock"></i> 6 minute read</div></div>
+<i class="fa-regular fa-clock"></i> 6 minute read</div>
 <p>
 Reverse engineering SmokeLoader's multi-stage loading process, focusing on its unpacking routine, anti-analysis techniques, code obfuscation, and process injection.
 </p>
@@ -68,7 +68,7 @@ Reverse engineering SmokeLoader's multi-stage loading process, focusing on its u
 <h2><a href="?page=OneDriveSync/OneDriveSync">MaaS RAT - OneDriveSync.exe</a></h2>
 <div class="meta">
 <i class="fa-solid fa-calendar-days"></i> May 7, 2026 •
-<i class="fa-regular fa-clock"></i> 7 minute read</div></div>
+<i class="fa-regular fa-clock"></i> 7 minute read</div>
 <p>
 Reversing a Windows RAT which disguises itself as OneDriveSync. 
 </p>
@@ -78,7 +78,7 @@ Reversing a Windows RAT which disguises itself as OneDriveSync.
 <h2><a href="?page=Babuk/Babuk">Ransomware - babuk.exe</a></h2>
 <div class="meta">
 <i class="fa-solid fa-calendar-days"></i> March 17 5, 2026 •
-<i class="fa-regular fa-clock"></i> 3 minute read</div></div>
+<i class="fa-regular fa-clock"></i> 3 minute read</div>
 <p>
 Looking into Babuk ransomware
 </p>
@@ -88,7 +88,7 @@ Looking into Babuk ransomware
 <h2><a href="?page=crimediggers/crimediggers">Crimediggers Politie - dropper.exe</a></h2>
 <div class="meta">
 <i class="fa-solid fa-calendar-days"></i> March 15, 2026 •
-<i class="fa-regular fa-clock"></i> 3 minute read</div></div>
+<i class="fa-regular fa-clock"></i> 3 minute read</div>
 <p>
 A CTF made by Politie NL
 </p>
@@ -104,7 +104,7 @@ A CTF made by Politie NL
 <h2><a href="https://medium.com/@lucasalgera5/writing-an-arm64-disassembler-from-scratch-a7e844a9b583">Writing an ARM64 disassembler from scratch</a></h2>
 <div class="meta">
 <i class="fa-solid fa-calendar-days"></i> January 3, 2026 •
-<i class="fa-regular fa-clock"></i> 11 minute read</div></div>
+<i class="fa-regular fa-clock"></i> 11 minute read</div>
 <p>
 Writing an ARM64 disassembler from scratch, exploring how modern disassemblers do this and going deeper into assembly concepts. 
 </p>
@@ -114,7 +114,7 @@ Writing an ARM64 disassembler from scratch, exploring how modern disassemblers d
 <h2><a href="?page=landscape-editor">Writing a Landscape Editor for game engines</a></h2>
 <div class="meta">
 <i class="fa-solid fa-calendar-days"></i> January 22, 2025 •
-<i class="fa-regular fa-clock"></i> 10 minute read</div></div>
+<i class="fa-regular fa-clock"></i> 10 minute read</div>
 <p>
 An article on how to write a 3D landscape editor in (custom) game engines. 
 </p>

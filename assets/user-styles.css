@@ -210,3 +210,8 @@ figcaption {
 .post p {
     margin: 0;
 }
+
+.post h2 {
+    font-size: 1.5rem; /* default is around 2rem */
+    margin-bottom: 0.3rem;
+}
