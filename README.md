@@ -13,7 +13,7 @@ Below are some of my write-ups and some other things I have posted.
 
 
 <div class="post">
-<h2><a href="?page=Hermetic/Hermetic">Hermetic Wiper analysis</a></h2>
+<h2><a href="?page=HermeticWiper/HermeticWiper">Hermetic Wiper analysis</a></h2>
 <div class="meta">
 <i class="fa-solid fa-calendar-days"></i> July 30, 2026 •
 <i class="fa-regular fa-clock"></i> 10 minute read
