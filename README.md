@@ -11,6 +11,18 @@ Below are some of my write-ups and some other things I have posted.
 
 <hr>
 
+
+<div class="post">
+<h2><a href="?page=Hermetic/Hermetic">Hermetic Wiper analysis</a></h2>
+<div class="meta">
+<i class="fa-solid fa-calendar-days"></i> July 30, 2026 •
+<i class="fa-regular fa-clock"></i> 10 minute read
+</div>
+<p>
+Reverse engineering the notorious wiper used during the Russia–Ukraine war and exploring kernel-level disk management. 
+</p>
+</div>
+
 <div class="post">
 <h2><a href="?page=StealC/StealC">Infostealers Part 2/2 - StealC deep dive</a></h2>
 <div class="meta">
