@@ -117,8 +117,10 @@ After knowing the raw geometry of the files/structures. Hermetic prepares a buff
 ![locking files](/assets/images/Hermetic/image-8.png)
 
 ### Creating more fragmentations
-Using the `FSCTL_MOVE_FILE`, Hermetic makes a bunch more fragmentations inside of the following folders:  
+Using the `FSCTL_MOVE_FILE`, Hermetic makes a bunch more fragmentations inside of the disks, making sure to exclude the following folders:  
 ![things to fragment](/assets/images/Hermetic/image-9.png)
+
+This exclusion is probably done to either save time or make sure system stability isn't compromised.  
 
 The fragmentation flow looks as follows:
 
