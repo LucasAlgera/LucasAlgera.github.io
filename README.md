@@ -11,9 +11,20 @@ Below are some of my write-ups and some other things I have posted.
 
 <hr>
 
+<div class="post">
+<h2><a href="?page=Reynolds/Reynolds">Reynolds Ransomware analysis - BYOVD</a></h2>
+<div class="meta">
+<i class="fa-solid fa-calendar-days"></i> September 17, 2026 •
+<i class="fa-regular fa-clock"></i> 8 minute read
+</div>
+<p>
+Reverse engineering a recently discovered ransomware known for its usage of a vulnerable driver to kill EDR and AV. 
+</p>
+</div>
+
 
 <div class="post">
-<h2><a href="?page=HermeticWiper/HermeticWiper">Hermetic Wiper analysis</a></h2>
+<h2><a href="?page=HermeticWiper/HermeticWiper">Hermetic Wiper analysis - BYOVD</a></h2>
 <div class="meta">
 <i class="fa-solid fa-calendar-days"></i> July 30, 2026 •
 <i class="fa-regular fa-clock"></i> 10 minute read
